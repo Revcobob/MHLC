@@ -113,6 +113,49 @@
     letter-spacing: 0.18em;
   }
 
+  .letter-roll-card {
+    display: flex;
+    flex-direction: column;
+    background: #FBF8F2;
+    border: 1px solid #EFE6D7;
+    border-radius: 14px;
+    padding: 1.25rem 1.4rem;
+    text-decoration: none;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms, border-color 200ms;
+  }
+  .letter-roll-card:hover {
+    transform: translateY(-1px);
+    border-color: #D4A04F;
+    box-shadow: 0 2px 4px rgba(15,76,74,0.06), 0 12px 24px rgba(15,76,74,0.08);
+  }
+  .letter-roll-type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #B8553A;
+  }
+  .letter-roll-name {
+    margin-top: 0.5rem;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    color: #1F2421;
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+  .letter-roll-action {
+    margin-top: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0A3A39;
+  }
+  .letter-roll-card:hover .letter-roll-action { color: #B8553A; }
+  .letter-roll-action svg { transition: transform 160ms; }
+  .letter-roll-card:hover .letter-roll-action svg { transform: translateX(2px); }
+
   .reveal {
     opacity: 0; transform: translateY(20px);
     transition: opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -353,7 +396,7 @@
           <span class="letter-role">Founding Dean, UT Tyler School of Medicine</span>
           <span class="letter-org">The University of Texas at Tyler</span>
         </div>
-        <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-deep hover:text-clay">
+        <a href="assets/Willis%20UT%20Tyler%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-deep hover:text-clay">
           Read the full letter
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -434,11 +477,133 @@
           <span class="letter-org">Alzheimer's Association · Dallas &amp; Northeast Texas Chapter</span>
           <span class="letter-date">March 20, 2023</span>
         </div>
-        <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-deep hover:text-clay">
+        <a href="assets/Alzheimers%20Association%20letter%20of%20support.jpg" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-deep hover:text-clay">
           Read the full letter
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CITIES, TOWNS & COUNTIES -->
+<section class="py-12 sm:py-16 bg-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="category-eyebrow">Cities, Towns & Counties</p>
+      <div class="marker-line mt-3"></div>
+      <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">From the neighbors next door.</h2>
+      <p class="mt-4 text-base sm:text-lg text-ink-soft leading-relaxed">East Texas towns, county governments, and the Quitman Development Corporation have submitted their own letters of support on official letterhead.</p>
+    </div>
+
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal-stagger">
+
+      <a href="assets/City%20of%20Alba%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Municipal · Wood County</span>
+        <span class="letter-roll-name">City of Alba, Texas</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/Canton%20Texas%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Municipal · Van Zandt County</span>
+        <span class="letter-roll-name">City of Canton, Texas</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/City%20of%20Emory%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Municipal · Rains County</span>
+        <span class="letter-roll-name">City of Emory, Texas</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/City%20of%20Winnsboro%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Municipal · Wood County</span>
+        <span class="letter-roll-name">City of Winnsboro, Texas</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/Upshur%20County%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">County Government</span>
+        <span class="letter-roll-name">Upshur County, Texas</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/Quitman%20Development%20Corporation%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Economic Development</span>
+        <span class="letter-roll-name">Quitman Development Corporation</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CIVIC & SERVICE ORGANIZATIONS -->
+<section class="py-12 sm:py-16 bg-sand-deep/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="category-eyebrow">Civic & Service Organizations</p>
+      <div class="marker-line mt-3"></div>
+      <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">From the people who show up.</h2>
+      <p class="mt-4 text-base sm:text-lg text-ink-soft leading-relaxed">Service clubs and community organizations across the region who already do the day-in, day-out work of caring for East Texas neighbors.</p>
+    </div>
+
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
+
+      <a href="assets/Pilot%20Club%20Quitman%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Service Club</span>
+        <span class="letter-roll-name">Pilot Club of Quitman</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/Quitman%20Lake%20Fork%20Kiwanis%20Club%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Service Club</span>
+        <span class="letter-roll-name">Quitman / Lake Fork Kiwanis Club</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/Yantis%20Lake%20Form%20Lions%20Club%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Service Club</span>
+        <span class="letter-roll-name">Yantis / Lake Fork Lions Club</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a href="assets/Lake%20Country%20Classic%20Car%20Club%20Letter%20of%20Support.jpg" target="_blank" rel="noopener" class="letter-roll-card group">
+        <span class="letter-roll-type">Community Organization</span>
+        <span class="letter-roll-name">Lake Country Classic Car Club</span>
+        <span class="letter-roll-action">
+          Read the letter
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
 
     </div>
   </div>
