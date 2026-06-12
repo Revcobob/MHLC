@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0F4C4A" />
+<title>Project Overview · Memory Health Life Center</title>
+<meta name="description" content="A campus for living and learning. The full project overview of the Memory Health Life Center: mission, site, care model, facilities, and downloads." />
+<meta property="og:title" content="Project Overview · Memory Health Life Center" />
+<meta property="og:description" content="A campus for living and learning — the Memory Health Life Center project overview." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    { DEFAULT: '#1F2421', soft: '#3B433E', mute: '#6C736E' },
+          sand:   { DEFAULT: '#F7F2EA', deep: '#EFE6D7', card: '#FBF8F2' },
+          teal:   { DEFAULT: '#0F4C4A', deep: '#0A3A39', soft: '#1A6A66', pale: '#D8E6E4' },
+          clay:   { DEFAULT: '#B8553A', deep: '#8E3F2A', pale: '#F2D7CC' },
+          gold:   { DEFAULT: '#D4A04F', deep: '#A5772E', pale: '#F4E4C1' },
+          sage:   { DEFAULT: '#6F9C7A', deep: '#4F7559', pale: '#DCE9DE' },
+        },
+        fontFamily: {
+          serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+          sans:  ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        },
+        boxShadow: {
+          'soft': '0 1px 2px rgba(15,76,74,0.06), 0 8px 24px rgba(15,76,74,0.06)',
+          'lift': '0 2px 4px rgba(15,76,74,0.08), 0 16px 40px rgba(15,76,74,0.10)',
+        },
+        maxWidth: { 'prose-tight': '62ch' },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #F7F2EA; color: #1F2421; }
+  h1, h2, h3, h4, .font-serif { font-family: 'Source Serif 4', Georgia, serif; font-feature-settings: "kern", "liga"; }
+  *:focus-visible { outline: 3px solid #D4A04F; outline-offset: 3px; border-radius: 6px; }
+  .skip-link { position: absolute; left: -9999px; top: 12px; background: #0F4C4A; color: #fff; padding: 10px 16px; border-radius: 8px; font-weight: 600; }
+  .skip-link:focus { left: 12px; z-index: 100; }
+  .donate-cta { background: #B8553A; }
+  .donate-cta:hover { background: #8E3F2A; }
+  .marker-line { width: 56px; height: 3px; background: #D4A04F; border-radius: 2px; }
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background-color: #0A3A39;
+    background-image:
+      linear-gradient(95deg, rgba(15,76,74,0.95) 0%, rgba(15,76,74,0.88) 25%, rgba(15,76,74,0.55) 50%, rgba(15,76,74,0.18) 75%, rgba(15,76,74,0.05) 100%),
+      linear-gradient(180deg, rgba(10,58,57,0.12) 0%, rgba(10,58,57,0.28) 100%),
+      radial-gradient(circle at 80% 30%, rgba(212,160,79,0.18) 0%, rgba(212,160,79,0) 60%),
+      linear-gradient(180deg, #0F4C4A 0%, #0A3A39 100%);
+  }
+  .page-hero .hero-content > * { max-width: 56ch; }
+
+  .info-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #FBF8F2;
+    border: 1px solid #EFE6D7;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgba(15,76,74,0.06), 0 8px 24px rgba(15,76,74,0.06);
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms;
+  }
+  .info-card:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(15,76,74,0.08), 0 16px 40px rgba(15,76,74,0.10); }
+  .info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .principle-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    background: #F2D7CC;
+    color: #8E3F2A;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .stat-card {
+    background: #FBF8F2;
+    border: 1px solid #EFE6D7;
+    border-radius: 14px;
+    padding: 1.25rem 1.4rem;
+  }
+
+  .download-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #FBF8F2;
+    border: 1px solid #EFE6D7;
+    border-radius: 14px;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms, border-color 200ms;
+  }
+  .download-card:hover {
+    transform: translateY(-2px);
+    border-color: #D4A04F;
+    box-shadow: 0 2px 4px rgba(15,76,74,0.08), 0 16px 40px rgba(15,76,74,0.10);
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  .reveal-stagger > * {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-stagger.is-visible > * { opacity: 1; transform: none; }
+  .reveal-stagger.is-visible > *:nth-child(1) { transition-delay:  40ms; }
+  .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 140ms; }
+  .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 240ms; }
+  .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 340ms; }
+  .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 440ms; }
+  .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 540ms; }
+
+  .hero-content > * {
+    opacity: 0; transform: translateY(14px);
+    animation: heroIn 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-content > :nth-child(1) { animation-delay: 180ms; }
+  .hero-content > :nth-child(2) { animation-delay: 340ms; }
+  .hero-content > :nth-child(3) { animation-delay: 500ms; }
+  .hero-content > :nth-child(4) { animation-delay: 660ms; }
+  @keyframes heroIn { to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal, .reveal-stagger > *, .hero-content > * {
+      opacity: 1 !important; transform: none !important;
+      transition: none !important; animation: none !important;
+    }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="bg-ink text-sand text-xs sm:text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+    <span><strong class="font-semibold">Prototype</strong> · Project Overview · Memory Health Life Center</span>
+    <span class="text-sand/70">A project of the Wood County Health Care Foundation</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="sticky top-0 z-40 bg-sand/95 backdrop-blur supports-[backdrop-filter]:bg-sand/80 border-b border-sand-deep">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-16 lg:h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="mhlc-homepage test.html" aria-label="Memory Health Life Center, home" class="shrink-0">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-teal text-sand font-serif font-semibold text-lg">M</span>
+        </a>
+        <div class="leading-tight">
+          <a href="mhlc-homepage test.html" class="block font-serif font-semibold text-ink text-lg hover:text-teal-deep">Memory Health Life Center</a>
+          <a href="mhlc-foundation.html" class="block text-[11px] uppercase tracking-[0.14em] text-ink-mute hover:text-teal underline decoration-clay/40 decoration-1 underline-offset-[3px] hover:decoration-clay">A project of the Wood County Health Care Foundation</a>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-ink-soft" aria-label="Primary">
+        <a href="mhlc-overview.html" class="text-teal-deep hover:text-teal" aria-current="page">The Project</a>
+        <a href="mhlc-homepage test.html#need" class="hover:text-teal">The Need</a>
+        <a href="mhlc-homepage test.html#progress" class="hover:text-teal">Progress</a>
+        <a href="mhlc-homepage test.html#families" class="hover:text-teal">Families</a>
+        <a href="mhlc-homepage test.html#partners" class="hover:text-teal">Partners</a>
+        <a href="mhlc-foundation.html" class="hover:text-teal">Foundation</a>
+        <a href="mhlc-homepage test.html#contact" class="hover:text-teal">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="mhlc-give.html" class="hidden sm:inline-flex donate-cta text-white font-semibold px-5 py-2.5 rounded-full shadow-soft transition-colors">Donate</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="page-hero text-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 hero-content">
+    <p class="text-xs sm:text-sm font-medium uppercase tracking-[0.18em] text-gold-pale">
+      <a href="mhlc-homepage test.html" class="hover:text-white">Home</a>
+      <span class="text-sand/40 mx-1">/</span>
+      <span class="text-sand">Project Overview</span>
+    </p>
+    <h1 class="mt-5 font-serif font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
+      A campus for living and learning.
+    </h1>
+    <p class="mt-6 text-lg sm:text-xl text-sand/85 max-w-prose-tight">
+      The Memory Health Life Center is a 54-bed, 29-acre brain-health village rising in Quitman, Texas, adjacent to UT Health Quitman. This page walks through the mission, the site, the care model, the numbers, and the downloads behind it.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3" style="max-width:none;">
+      <a href="#mission" class="bg-sand text-teal-deep font-semibold px-6 py-3 rounded-full hover:bg-white whitespace-nowrap">Start at the mission</a>
+      <a href="#downloads" class="inline-flex items-center gap-2 bg-sand/10 border border-sand/20 text-sand font-semibold px-6 py-3 rounded-full hover:bg-sand/15 whitespace-nowrap">
+        Jump to downloads
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission" class="py-16 sm:py-20 bg-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-5 reveal">
+        <p class="text-sm font-semibold text-clay uppercase tracking-[0.18em]">Our Mission</p>
+        <div class="marker-line mt-3"></div>
+        <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">
+          What we are here to do.
+        </h2>
+        <p class="mt-4 text-base text-ink-soft leading-relaxed">
+          The Wood County Health Care Foundation began with one promise: build a place where families do not have to leave East Texas to find good dementia care, and where the people who provide that care can learn how to do it well.
+        </p>
+      </div>
+
+      <figure class="lg:col-span-7 reveal">
+        <div class="rounded-2xl bg-teal-deep text-sand p-7 sm:p-10 shadow-lift relative">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" class="text-gold-pale/90 absolute top-7 left-7" aria-hidden="true"><path d="M7 8c-3 0-4 2-4 5v4h6v-6H6c0-2 1-3 3-3Zm10 0c-3 0-4 2-4 5v4h6v-6h-3c0-2 1-3 3-3Z"/></svg>
+          <blockquote class="pt-10 font-serif text-lg sm:text-xl leading-relaxed text-sand">
+            The foundation's mission is to do what is right for <strong class="text-gold-pale font-semibold">our community, our state, and our country</strong> by developing an all-inclusive center for individuals challenged with Alzheimer's disease based on their ability to pay, and to assist in the advanced education of healthcare professionals and service providers in a safe environment for residents and visiting family members.
+          </blockquote>
+          <figcaption class="mt-6 pt-5 border-t border-sand/20 text-sm text-sand/85">
+            <span class="font-semibold text-sand">Wood County Health Care Foundation</span> · 501(c)(3) · EIN 75-2309177
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- THE SITE & REGION -->
+<section id="site" class="py-16 sm:py-20 bg-sand-deep/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="text-sm font-semibold text-clay uppercase tracking-[0.18em]">The Site & Region</p>
+      <div class="marker-line mt-3"></div>
+      <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">
+        29 acres, next door to a hospital.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-ink-soft leading-relaxed">
+        The Center for Memory Health & Education rises on 29 acres owned by the Wood County Central Hospital District, directly adjacent to UT Health's Quitman Hospital campus. The siting is intentional — a clinical neighbor a short walk away, and a regional position that puts millions of Texans within reach.
+      </p>
+    </div>
+
+    <div class="mt-10 grid lg:grid-cols-12 gap-6 reveal">
+      <div class="lg:col-span-7">
+        <div class="rounded-2xl bg-sand-card border border-sand-deep p-7 shadow-soft h-full">
+          <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">The site</p>
+          <h3 class="mt-2 font-serif text-2xl font-semibold text-ink">Adjacent to UT Health Quitman.</h3>
+          <ul class="mt-5 space-y-3 text-sm sm:text-base text-ink-soft">
+            <li class="flex gap-3">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full bg-clay shrink-0" aria-hidden="true"></span>
+              <span><strong class="text-ink">29 acres</strong> owned by the Wood County Central Hospital District</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full bg-clay shrink-0" aria-hidden="true"></span>
+              <span><strong class="text-ink">Direct adjacency</strong> to UT Health's Quitman Hospital — clinical support a walk away</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full bg-clay shrink-0" aria-hidden="true"></span>
+              <span><strong class="text-ink">Reflection lake, walking paths, gardens</strong> integrated into the site plan</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full bg-clay shrink-0" aria-hidden="true"></span>
+              <span><strong class="text-ink">Pet-friendly grounds</strong> with a working barn for horses and tame animals</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-2xl bg-teal text-sand p-7 shadow-lift h-full">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-gold-pale">A regional hub</p>
+          <h3 class="mt-2 font-serif text-xl font-semibold">From Quitman to the rest of East Texas — and beyond.</h3>
+          <dl class="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 text-sm">
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-sand/60">From DFW Metro</dt>
+              <dd class="mt-1 font-serif text-2xl font-semibold text-gold-pale">90 mi</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-sand/60">From UT Tyler Medical School</dt>
+              <dd class="mt-1 font-serif text-2xl font-semibold text-gold-pale">35 mi</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-sand/60">From I-30</dt>
+              <dd class="mt-1 font-serif text-2xl font-semibold text-gold-pale">25 mi</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-sand/60">From I-20</dt>
+              <dd class="mt-1 font-serif text-2xl font-semibold text-gold-pale">25 mi</dd>
+            </div>
+            <div class="col-span-2">
+              <dt class="text-xs uppercase tracking-wider text-sand/60">From Shreveport, LA</dt>
+              <dd class="mt-1 font-serif text-2xl font-semibold text-gold-pale">116 mi</dd>
+            </div>
+          </dl>
+          <p class="mt-6 pt-5 border-t border-sand/15 text-sm text-sand/80">
+            <strong class="text-sand">9 million people</strong> live in the DFW metroplex alone, all within a 90-mile reach of the campus.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S ON THE CAMPUS -->
+<section id="campus" class="py-16 sm:py-20 bg-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="text-sm font-semibold text-clay uppercase tracking-[0.18em]">What's on the Campus</p>
+      <div class="marker-line mt-3"></div>
+      <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">
+        Six places, one campus.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-ink-soft leading-relaxed">
+        Not a single building with corridors and doors. A village — residential dwellings, a clinic, a barn, gardens, reflection grounds, and student housing — designed so daily life feels like a neighborhood, not an institution.
+      </p>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-stagger">
+
+      <article class="info-card">
+        <span class="info-icon bg-teal-pale text-teal-deep" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4v-7H10v7H6a2 2 0 0 1-2-2z"/></svg>
+        </span>
+        <h3 class="mt-5 font-serif text-xl font-semibold text-ink">Resident Homes</h3>
+        <p class="mt-2 text-sm text-ink-soft leading-relaxed flex-1"><strong class="text-ink">54 residential dwellings.</strong> Each is its own apartment-style home with open floor plan and large windows. No long, cold hallways lined with doors. Wall colors, paintings, and sculpture along common areas. Every aspect of design is tailored to those with memory issues.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="info-icon bg-sage-pale text-sage-deep" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        <h3 class="mt-5 font-serif text-xl font-semibold text-ink">Clinic, Education & Research</h3>
+        <p class="mt-2 text-sm text-ink-soft leading-relaxed flex-1">A medical clinic serving residents and the public, with educational opportunities for doctors, nurses, allied health professionals, and family caregivers. Research that helps other facilities across the nation adopt the same model.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="info-icon bg-gold-pale text-gold-deep" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c0-2 2-3 4-3s4 1 4 3v3H3zM13 17c0-2 2-3 4-3s4 1 4 3v3h-8zM7 7a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm10 0a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z"/></svg>
+        </span>
+        <h3 class="mt-5 font-serif text-xl font-semibold text-ink">Reflection Lake & Paths</h3>
+        <p class="mt-2 text-sm text-ink-soft leading-relaxed flex-1">A reflection lake with groomed walking paths, full of trees, green grass, and wildflowers. The healing power of outdoor spaces is the centerpiece of the campus, not an afterthought tucked behind the buildings.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="info-icon bg-clay-pale text-clay-deep" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+        </span>
+        <h3 class="mt-5 font-serif text-xl font-semibold text-ink">Working Barn & Garden</h3>
+        <p class="mt-2 text-sm text-ink-soft leading-relaxed flex-1">Horses and tame animals housed in separate facilities residents can visit. A garden where residents can grow and enjoy purposeful, productive lives. The barn is a place to interact, not a backdrop.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="info-icon bg-teal-pale text-teal-deep" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </span>
+        <h3 class="mt-5 font-serif text-xl font-semibold text-ink">Common Spaces</h3>
+        <p class="mt-2 text-sm text-ink-soft leading-relaxed flex-1">Dining facilities, entertainment areas, gathering spaces. The rhythms of a normal day — meals together, a movie, a porch in the afternoon — built back into the floor plan.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="info-icon bg-sage-pale text-sage-deep" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </span>
+        <h3 class="mt-5 font-serif text-xl font-semibold text-ink">Student Housing</h3>
+        <p class="mt-2 text-sm text-ink-soft leading-relaxed flex-1">Dormitory housing for students, interns, residents, and SOM faculty participating in the living-laboratory experience. They learn how to better communicate with people facing memory challenges — and they help carry the day.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CARE MODEL -->
+<section id="care-model" class="py-16 sm:py-20 bg-teal text-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="text-sm font-semibold text-gold-pale uppercase tracking-[0.18em]">The Care Model</p>
+      <div class="marker-line mt-3"></div>
+      <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight">
+        Hogeweyk-inspired. Zeisel-trained.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-sand/85 leading-relaxed">
+        The care model was pioneered by <strong class="text-white">John Zeisel, PhD</strong> — a leading expert on dementia care and a former Harvard professor — and built on five foundational principles. The same five principles shape every program, every space, and every interaction on the campus.
+      </p>
+    </div>
+
+    <ol class="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-4 reveal-stagger">
+      <li class="rounded-2xl bg-sand/5 border border-sand/15 p-6">
+        <span class="principle-num">1</span>
+        <h3 class="mt-4 font-serif text-lg font-semibold text-sand">Community Design</h3>
+        <p class="mt-2 text-sm text-sand/80 leading-relaxed">Spaces designed to create a sense of warmth, belonging, and security — not the sterile geometry of institutional care.</p>
+      </li>
+      <li class="rounded-2xl bg-sand/5 border border-sand/15 p-6">
+        <span class="principle-num">2</span>
+        <h3 class="mt-4 font-serif text-lg font-semibold text-sand">Communication</h3>
+        <p class="mt-2 text-sm text-sand/80 leading-relaxed">Staff and family training in the language and presence dementia care requires — how to listen, how to respond, how to stay.</p>
+      </li>
+      <li class="rounded-2xl bg-sand/5 border border-sand/15 p-6">
+        <span class="principle-num">3</span>
+        <h3 class="mt-4 font-serif text-lg font-semibold text-sand">Engagement</h3>
+        <p class="mt-2 text-sm text-sand/80 leading-relaxed">Meaningful daily activity. Purpose, not distraction. A reason to wake up and a place to go.</p>
+      </li>
+      <li class="rounded-2xl bg-sand/5 border border-sand/15 p-6">
+        <span class="principle-num">4</span>
+        <h3 class="mt-4 font-serif text-lg font-semibold text-sand">Creative Arts</h3>
+        <p class="mt-2 text-sm text-sand/80 leading-relaxed">Music, painting, theater, and movement as therapeutic practice — pathways the disease cannot close.</p>
+      </li>
+      <li class="rounded-2xl bg-sand/5 border border-sand/15 p-6">
+        <span class="principle-num">5</span>
+        <h3 class="mt-4 font-serif text-lg font-semibold text-sand">Nature</h3>
+        <p class="mt-2 text-sm text-sand/80 leading-relaxed">Outdoor air, light, animals, water, planting. Built into the campus, not added on later.</p>
+      </li>
+    </ol>
+
+    <div class="mt-10 reveal">
+      <p class="text-sm text-sand/75 max-w-prose-tight">
+        The foundation reviewed dementia-village programs in the United States and in <strong class="text-sand">Sweden, Norway, Ireland, and England</strong> before settling on this combination — a hybrid that brings the Hogeweyk lineage to East Texas and adds an education and research wing the European models do not have.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section id="numbers" class="py-16 sm:py-20 bg-sand">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="text-sm font-semibold text-clay uppercase tracking-[0.18em]">By the Numbers</p>
+      <div class="marker-line mt-3"></div>
+      <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">
+        What it takes to build it.
+      </h2>
+    </div>
+
+    <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
+      <div class="stat-card">
+        <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">Total build cost</p>
+        <p class="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-teal-deep">$70M</p>
+        <p class="mt-2 text-xs text-ink-mute">Construction, land development, and equipping the campus.</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">Annual operating budget</p>
+        <p class="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-teal-deep">$6.5M</p>
+        <p class="mt-2 text-xs text-ink-mute">Steady-state operating cost once the campus is open.</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">Residential dwellings</p>
+        <p class="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-teal-deep">54</p>
+        <p class="mt-2 text-xs text-ink-mute">Apartment-style memory care homes, sliding-scale fees.</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">Campus footprint</p>
+        <p class="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-teal-deep">29 ac</p>
+        <p class="mt-2 text-xs text-ink-mute">Adjacent to UT Health Quitman, owned by WCCHD.</p>
+      </div>
+
+      <div class="stat-card sm:col-span-2 lg:col-span-2 bg-teal-deep text-sand border-teal-deep">
+        <p class="text-xs font-semibold uppercase tracking-wider text-gold-pale">Federal earmark · secured</p>
+        <p class="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-gold-pale">$6,000,000</p>
+        <p class="mt-2 text-xs text-sand/80">U.S. House Agriculture Subcommittee, FY appropriations — for the clinic and education wing.</p>
+      </div>
+      <div class="stat-card sm:col-span-2 lg:col-span-2">
+        <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">Community gifts to date</p>
+        <p class="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-clay">$833,500 +</p>
+        <p class="mt-2 text-xs text-ink-mute">Raised locally as of the most recent foundation update. <a href="mhlc-contributors.html" class="font-semibold text-teal-deep hover:text-clay">See the honor roll →</a></p>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="mhlc-give.html" class="donate-cta text-white font-semibold px-6 py-3 rounded-full shadow-lift">Help close the gap</a>
+      <a href="mhlc-letters-of-support.html" class="bg-sand-deep text-ink font-semibold px-6 py-3 rounded-full hover:bg-sand">See letters of support</a>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section id="downloads" class="py-16 sm:py-20 bg-sand-deep/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="text-sm font-semibold text-clay uppercase tracking-[0.18em]">Downloads</p>
+      <div class="marker-line mt-3"></div>
+      <h2 class="mt-5 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">
+        Take the deck with you.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-ink-soft leading-relaxed">
+        For donors, board members, partners, and journalists who need the full picture — the foundation maintains a current presentation deck and the most recent conceptual drawings of the campus.
+      </p>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-4 reveal-stagger">
+      <a href="#" class="download-card group" aria-label="Download PowerPoint Presentation">
+        <span class="info-icon bg-gold-pale text-gold-deep shrink-0" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </span>
+        <div class="flex-1">
+          <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">Presentation</p>
+          <p class="mt-1 font-serif text-lg font-semibold text-ink leading-snug group-hover:text-teal-deep">PowerPoint Presentation</p>
+          <p class="mt-1 text-sm text-ink-mute">The full campaign deck used in foundation, partner, and donor briefings.</p>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-deep group-hover:text-clay shrink-0" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <a href="#" class="download-card group" aria-label="Download Conceptual Drawings, September 2023">
+        <span class="info-icon bg-clay-pale text-clay-deep shrink-0" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l6-6m4-10 7 7-3 3-7-7zM3 21l3-1 7-7-3-3-7 7z"/></svg>
+        </span>
+        <div class="flex-1">
+          <p class="text-xs font-semibold uppercase tracking-wider text-ink-mute">Drawings</p>
+          <p class="mt-1 font-serif text-lg font-semibold text-ink leading-snug group-hover:text-teal-deep">Conceptual Drawings · September 2023</p>
+          <p class="mt-1 text-sm text-ink-mute">Site plan, building renderings, and the campus master view at the current design stage.</p>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-deep group-hover:text-clay shrink-0" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <p class="mt-6 text-xs text-ink-mute italic">Files coming soon. To request the current versions directly, <a href="mhlc-homepage test.html#contact" class="underline decoration-clay/40 underline-offset-2 hover:decoration-clay font-semibold">contact the foundation</a>.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="py-16 sm:py-20 bg-sand">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+    <p class="text-sm font-semibold text-clay uppercase tracking-[0.18em]">Build it with us</p>
+    <h2 class="mt-3 font-serif font-semibold text-3xl sm:text-4xl leading-tight text-ink">
+      You've seen the plan. Now help build it.
+    </h2>
+    <p class="mt-5 text-lg text-ink-soft leading-relaxed">
+      Federal funds are committed. Community gifts are growing. Every gift moves the Memory Health Life Center closer to opening day.
+    </p>
+    <div class="mt-7 flex flex-wrap justify-center gap-3">
+      <a href="mhlc-give.html" class="donate-cta text-white font-semibold px-6 py-3 rounded-full shadow-lift">Give now</a>
+      <a href="mhlc-letters-of-support.html" class="bg-sand-deep text-ink font-semibold px-6 py-3 rounded-full hover:bg-sand">See who's standing with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-sand/85">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex w-10 h-10 items-center justify-center rounded-xl bg-teal text-sand font-serif font-semibold text-lg">M</span>
+          <span class="leading-tight">
+            <span class="block font-serif font-semibold text-sand text-lg">Memory Health Life Center</span>
+            <span class="block text-[11px] uppercase tracking-[0.14em] text-sand/60">Wood County Health Care Foundation</span>
+          </span>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed max-w-md">A 54-bed, Hogeweyk-inspired memory care campus for East Texas, in Quitman, Texas. Stewarded by the Wood County Health Care Foundation, a 501(c)(3) charitable organization.</p>
+        <p class="mt-5 text-xs text-sand/60">EIN <span class="font-mono">75-2309177</span></p>
+      </div>
+
+      <nav class="md:col-span-3" aria-label="Footer nav">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sand/70">Explore</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="mhlc-overview.html" class="hover:text-white" aria-current="page">Project overview</a></li>
+          <li><a href="mhlc-resources.html" class="hover:text-white">Resources</a></li>
+          <li><a href="mhlc-letters-of-support.html" class="hover:text-white">Letters of support</a></li>
+          <li><a href="mhlc-give.html" class="hover:text-white">Donate</a></li>
+          <li><a href="mhlc-contributors.html" class="hover:text-white">Honor roll</a></li>
+          <li><a href="mhlc-foundation.html" class="hover:text-white">About the Foundation</a></li>
+          <li><a href="mhlc-homepage test.html#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-4">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sand/70">Stay informed</p>
+        <p class="mt-3 text-sm">Monthly progress updates from the Foundation.</p>
+        <form class="mt-4 flex gap-2" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you';">
+          <label for="footerEmail" class="sr-only">Email address</label>
+          <input id="footerEmail" type="email" required placeholder="you@example.com" class="flex-1 rounded-lg bg-sand/10 border border-sand/20 px-3 py-2.5 text-sand placeholder:text-sand/50"/>
+          <button type="submit" class="bg-gold text-ink font-semibold px-4 py-2.5 rounded-lg hover:bg-gold-deep hover:text-white transition-colors">Subscribe</button>
+        </form>
+        <a href="mhlc-give.html" class="mt-5 inline-flex items-center gap-2 donate-cta text-white font-semibold px-5 py-2.5 rounded-full">Donate</a>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-sand/15 text-xs text-sand/60 flex flex-wrap items-center justify-between gap-3">
+      <p>© <span id="year">2026</span> Wood County Health Care Foundation. All rights reserved.</p>
+      <p>Prototype · companion to <code class="font-mono">mhlc-homepage test.html</code></p>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    var prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nodes = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (prefersReduce || typeof IntersectionObserver !== 'function') {
+      nodes.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    nodes.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
