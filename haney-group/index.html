@@ -593,14 +593,13 @@ section.tight { padding-block: clamp(48px, 6vw, 72px); }
 /* ---------- Principals (senior-led firm) ---------- */
 .firm { background: var(--paper); border-bottom: 1px solid var(--line-1); }
 .firm__top {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  max-width: 60ch;
   margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-@media (min-width: 880px) {
-  .firm__top { grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; }
-}
+.firm__top h2 { text-wrap: balance; }
 .firm__top p.lede { margin: 0; }
 .principals__grid {
   display: grid;
@@ -1087,10 +1086,8 @@ section.tight { padding-block: clamp(48px, 6vw, 72px); }
 <section class="firm" data-reveal>
   <div class="container">
     <div class="firm__top">
-      <div>
-        <p class="eyebrow" style="margin-bottom:18px">The Principals</p>
-        <h2 class="h2">Proven expertise. Focused results. Unmatched influence.</h2>
-      </div>
+      <p class="eyebrow">The Principals</p>
+      <h2 class="h2">Proven expertise. Focused results. Unmatched influence.</h2>
       <p class="lede">
         The Haney Group is intentionally senior-led. Clients work directly with principals who bring more than 40 years of combined Texas Capitol experience to legislative strategy, parliamentary procedure, and disciplined communication.
       </p>
