@@ -11,12 +11,15 @@
  * By default it only fills rows whose image_url is empty, so photos edited by
  * hand in the admin are left untouched. Pass --force to overwrite every match.
  *
+ * Talks to Supabase's PostgREST endpoint directly with the built-in fetch, so
+ * it has no runtime dependency on @supabase/supabase-js and works on any Node
+ * version (avoids the realtime-js native-WebSocket requirement on Node < 22).
+ *
  * Usage:
  *   npx tsx scripts/backfill-board-photos.ts          # fill only missing photos
  *   npx tsx scripts/backfill-board-photos.ts --force  # overwrite all matches
  */
 import './loadEnv';
-import { createClient } from '@supabase/supabase-js';
 import { ROSTER, portraitUrl, portraitAlt } from './board-roster';
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -26,26 +29,46 @@ if (!url || !key) {
   process.exit(1);
 }
 const force = process.argv.includes('--force');
-const sb = createClient(url, key, { auth: { persistSession: false } });
+const base = `${url.replace(/\/$/, '')}/rest/v1/board_members`;
+const headers = {
+  apikey: key,
+  Authorization: `Bearer ${key}`,
+  'Content-Type': 'application/json',
+  Prefer: 'return=representation'
+};
+
+interface Row { id: string; image_url: string | null }
+
+async function findByName(name: string): Promise<Row[]> {
+  const res = await fetch(`${base}?name=eq.${encodeURIComponent(name)}&select=id,image_url`, { headers });
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}: ${await res.text()}`);
+  return res.json() as Promise<Row[]>;
+}
+
+async function setPhoto(id: string, image: string, name: string): Promise<void> {
+  const res = await fetch(`${base}?id=eq.${encodeURIComponent(id)}`, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({ image_url: portraitUrl(image), image_alt: portraitAlt(name) })
+  });
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}: ${await res.text()}`);
+}
 
 (async () => {
   let updated = 0, skipped = 0, missing = 0;
   for (const p of ROSTER) {
-    const { data: row, error: findErr } = await sb
-      .from('board_members')
-      .select('id, image_url')
-      .eq('name', p.name)
-      .maybeSingle();
-    if (findErr) { console.error(`✗ ${p.name}: ${findErr.message}`); continue; }
-    if (!row) { console.log(`? not in table (run seed-board first): ${p.name}`); missing++; continue; }
-    if (row.image_url && !force) { console.log(`· already has photo: ${p.name}`); skipped++; continue; }
-
-    const { error } = await sb
-      .from('board_members')
-      .update({ image_url: portraitUrl(p.image), image_alt: portraitAlt(p.name) })
-      .eq('id', row.id);
-    if (error) console.error(`✗ ${p.name}: ${error.message}`);
-    else { console.log(`✓ ${p.name} → ${portraitUrl(p.image)}`); updated++; }
+    try {
+      const rows = await findByName(p.name);
+      if (rows.length === 0) { console.log(`? not in table (run seed-board first): ${p.name}`); missing++; continue; }
+      for (const row of rows) {
+        if (row.image_url && !force) { console.log(`· already has photo: ${p.name}`); skipped++; continue; }
+        await setPhoto(row.id, p.image, p.name);
+        console.log(`✓ ${p.name} → ${portraitUrl(p.image)}`);
+        updated++;
+      }
+    } catch (err) {
+      console.error(`✗ ${p.name}: ${(err as Error).message}`);
+    }
   }
   console.log(`\nDone. ${updated} updated, ${skipped} skipped, ${missing} not found.`);
 })().catch(err => { console.error(err); process.exit(1); });
