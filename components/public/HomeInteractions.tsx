@@ -49,7 +49,7 @@ export function MobileNavigation() {
           <a href={homeLinks.center}>
             The Project <ArrowRight />
           </a>
-          <a href="#welcome-heading">
+          <a href="#need">
             The Need <ArrowRight />
           </a>
           <a href="#progress">
@@ -58,14 +58,33 @@ export function MobileNavigation() {
           <a href="#families">
             Families <ArrowRight />
           </a>
-          <a href="#regional-impact">
-            Regional Impact <ArrowRight />
+          <a href="#partners">
+            Partners <ArrowRight />
           </a>
           <a href={homeLinks.foundation}>
             Foundation <ArrowRight />
           </a>
           <a href={homeLinks.contact}>
             Contact <ArrowRight />
+          </a>
+          <p className="home-mobile-group">More from the Foundation</p>
+          <a href={homeLinks.families}>
+            Family &amp; caregiver resources <ArrowRight />
+          </a>
+          <a href={homeLinks.events}>
+            Events <ArrowRight />
+          </a>
+          <a href={homeLinks.supporters}>
+            Letters of support <ArrowRight />
+          </a>
+          <a href={homeLinks.recognition}>
+            Honor roll <ArrowRight />
+          </a>
+          <a
+            className="home-button home-button-clay home-mobile-donate"
+            href={homeLinks.give}
+          >
+            Donate
           </a>
         </nav>
       </div>
