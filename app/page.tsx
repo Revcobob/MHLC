@@ -5,10 +5,14 @@ import {
   ArrowRight,
   ArrowUpRight,
   BookOpen,
+  GraduationCap,
+  HandHeart,
   Heart,
   Home,
   MapPin,
   MessageCircle,
+  Network,
+  Stethoscope,
   Sprout,
   Sun,
   Users,
@@ -34,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
     page?.seo_title || "Memory Health Life Center | A Community in the Making";
   const description =
     page?.seo_description ||
-    "Discover the vision for Memory Health Life Center, a planned residential community in Quitman, Texas, built around everyday life with dementia.";
+    "Discover Memory Health Life Center, a project in development in Quitman, Texas, connecting residential dementia care, family support, training, and regional memory-health capacity.";
   return {
     metadataBase: new URL(env.siteUrl),
     title,
@@ -93,6 +97,45 @@ const dayMoments = [
   },
 ];
 
+const responsePaths = [
+  {
+    audience: "For the person living with dementia",
+    title: "A different residential model.",
+    text: "Homes, gardens, paths, routines, and shared places are planned around daily life rather than an institutional hallway.",
+    icon: Home,
+  },
+  {
+    audience: "For the family",
+    title: "Education, understanding, and support.",
+    text: "Resources and updates help families understand what is being built, what is available now, and where to begin.",
+    icon: Heart,
+  },
+  {
+    audience: "For caregivers and healthcare workers",
+    title: "Training and workforce development.",
+    text: "The proposed campus is meant to support learning for the people who provide dementia care across East Texas.",
+    icon: Stethoscope,
+  },
+  {
+    audience: "For healthcare and universities",
+    title: "Partnership and learning.",
+    text: "MHLC can become a place where academic, medical, and community partners learn from a residential model in practice.",
+    icon: GraduationCap,
+  },
+  {
+    audience: "For East Texas",
+    title: "Greater memory-health capacity.",
+    text: "The project gives the region a shared point of focus for dementia care, family understanding, and community readiness.",
+    icon: Network,
+  },
+  {
+    audience: "For donors and foundations",
+    title: "A model with broader impact.",
+    text: "Philanthropy can help demonstrate an approach whose value extends beyond the people who ultimately live on campus.",
+    icon: HandHeart,
+  },
+];
+
 export default async function Homepage() {
   const { sections, settings, milestones } = await getHomeContent();
   const copy = (key: Parameters<typeof sectionCopy>[0]) =>
@@ -104,7 +147,7 @@ export default async function Homepage() {
     name: "Memory Health Life Center",
     url: new URL("/", env.siteUrl).href,
     description:
-      "A planned residential memory-care community in Quitman, Texas.",
+      "A project in development in Quitman, Texas, connecting residential dementia care, family support, training, and regional memory-health capacity.",
     publisher: {
       "@type": "Organization",
       name: "Wood County Health Care Foundation",
@@ -140,10 +183,13 @@ export default async function Homepage() {
         <div className="home-container home-header-inner">
           <HomeBrand />
           <nav className="home-desktop-nav" aria-label="Main navigation">
-            <a href={homeLinks.center}>The Center</a>
-            <a href="#families">For Families</a>
+            <a href={homeLinks.center}>The Project</a>
+            <a href="#welcome-heading">The Need</a>
+            <a href="#progress">Progress</a>
+            <a href="#families">Families</a>
             <a href="#regional-impact">Regional Impact</a>
-            <a href={homeLinks.foundation}>About</a>
+            <a href={homeLinks.foundation}>Foundation</a>
+            <a href={homeLinks.contact}>Contact</a>
           </nav>
           <div className="home-header-actions">
             <a
@@ -173,7 +219,7 @@ export default async function Homepage() {
             <div className="home-hero-copy">
               <p className="home-eyebrow">{copy("hero").eyebrow}</p>
               <h1 id="home-title">
-                Memory Health
+                Memory Health{" "}
                 <br />
                 Life Center
               </h1>
@@ -223,6 +269,32 @@ export default async function Homepage() {
             />
             <div className="home-welcome-aside">
               <p className="home-body">{copy("need").body}</p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="home-section home-response"
+          aria-labelledby="response-heading"
+        >
+          <div className="home-container" data-home-reveal>
+            <div className="home-response-lead">
+              <HomeHeading
+                eyebrow="What that means"
+                heading="A regional response, shown through the people it serves."
+                body="Each visitor comes with a different question. The vision is designed to meet people at those questions and connect them to the part of the work that matters most."
+                id="response-heading"
+              />
+            </div>
+            <div className="home-response-grid">
+              {responsePaths.map((path) => (
+                <article key={path.audience}>
+                  <path.icon size={23} aria-hidden="true" />
+                  <p className="home-response-audience">{path.audience}</p>
+                  <h3>{path.title}</h3>
+                  <p>{path.text}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -496,11 +568,12 @@ export default async function Homepage() {
               <p className="home-eyebrow">
                 Major gifts & philanthropic partners
               </p>
-              <h3>A larger commitment starts with a conversation.</h3>
+              <h3>Help demonstrate a model for the wider region.</h3>
               <p>
                 Discuss the current funding priorities, project plans, and how
-                your support could contribute with the Wood County Health Care
-                Foundation.
+                your support could help the Wood County Health Care Foundation
+                advance a dementia response with impact beyond the future
+                campus.
               </p>
               <HomeLink href={homeLinks.contact} variant="teal">
                 Discuss a significant gift

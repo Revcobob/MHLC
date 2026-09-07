@@ -47,22 +47,25 @@ export function MobileNavigation() {
       <div id="home-mobile-menu" ref={panel} hidden={!open}>
         <nav aria-label="Mobile navigation" onClick={() => setOpen(false)}>
           <a href={homeLinks.center}>
-            The Center <ArrowRight />
+            The Project <ArrowRight />
+          </a>
+          <a href="#welcome-heading">
+            The Need <ArrowRight />
+          </a>
+          <a href="#progress">
+            Progress <ArrowRight />
           </a>
           <a href="#families">
-            For Families <ArrowRight />
+            Families <ArrowRight />
           </a>
           <a href="#regional-impact">
             Regional Impact <ArrowRight />
           </a>
-          <a href="#progress">
-            Project Progress <ArrowRight />
-          </a>
           <a href={homeLinks.foundation}>
-            About the Foundation <ArrowRight />
+            Foundation <ArrowRight />
           </a>
           <a href={homeLinks.contact}>
-            Contact Us <ArrowRight />
+            Contact <ArrowRight />
           </a>
         </nav>
       </div>

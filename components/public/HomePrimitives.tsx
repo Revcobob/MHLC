@@ -61,8 +61,8 @@ export function HomeBrand({ footer = false }: { footer?: boolean }) {
         sizes="38px"
       />
       <span>
-        Memory Health<span>Life Center</span>
-        <small>Quitman, Texas</small>
+        Memory Health Life Center
+        <small>A project of the Wood County Health Care Foundation</small>
       </span>
     </a>
   );

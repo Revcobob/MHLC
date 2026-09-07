@@ -12,13 +12,13 @@ import type {
 export const homeCopy = {
   hero: {
     eyebrow: "Quitman, Texas / A community in development",
-    heading: "A new kind of memory care for East Texas.",
-    body: "A planned residential community where life with dementia includes the comfort of home, time outdoors, and the company of neighbors.",
+    heading: "A better way for a region to respond to dementia.",
+    body: "Memory Health Life Center is being developed as more than a place to live. The vision connects residential life, family support, caregiver learning, healthcare partnership, and regional memory-health capacity.",
   },
   need: {
-    eyebrow: "A place to belong",
-    heading: "Life changes. The need to belong never does.",
-    body: "When someone you love is living with dementia, the everyday things still matter. A favorite routine. A familiar face. A place to feel at home.",
+    eyebrow: "The larger purpose",
+    heading: "The Center is one answer to several connected needs.",
+    body: "Dementia changes life for the person diagnosed, the family around them, the caregivers beside them, and the rural health systems trying to help. MHLC gives the region a visible place to gather that work.",
   },
   vision: {
     eyebrow: "The residential-community idea",
