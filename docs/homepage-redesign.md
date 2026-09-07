@@ -22,6 +22,8 @@ Review date: September 6, 2026.
 - **Misleading visual weight:** replace the generic fallback timeline with an honest current-status block. Only CMS-supplied milestones receive timeline treatment.
 - **Mobile imbalance:** compress daily-life moments into a readable two-column sequence, adjust the narrow hero, and prevent footer headings from inheriting section-scale typography.
 - **Readability:** increase key caption/label sizes and retain focus visibility, reduced-motion support, semantic landmarks, and native disclosure behavior.
+- **Approved message refinement:** update the homepage thesis from a better memory-care facility to a broader regional response to dementia, then demonstrate that response through paths for the person living with dementia, families, caregivers and healthcare workers, healthcare and universities, East Texas, and philanthropic partners.
+- **Header alignment:** bring the homepage header closer to the secondary-page identity system with the larger brand mark, cream background, serif project name, all-caps Foundation relationship, clay underline, and matching navigation labels.
 
 ## Asset Provenance
 
