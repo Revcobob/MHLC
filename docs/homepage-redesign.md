@@ -196,3 +196,29 @@ a garden path.
 
 The trail is decorative — an `aria-hidden` span and CSS pseudo-elements — so
 nothing in the routing depends on seeing it.
+
+### The piney woods (September 7, 2026)
+
+The trail is drawn more prominently and the path now runs through a wood.
+
+- **The ribbon** widened from a 26px band to 48px with a soft inner edge in
+  place of the earlier dashed centre line, which read as ladder rungs at that
+  width. The meander widened with it. Amplitude is still deliberately smaller
+  than the ribbon's half-width so a waypoint always sits on the path — that
+  constraint is what keeps the trail adaptive to variable row heights instead
+  of needing fixed rows.
+- **The pines** are four SVG assets in `public/assets/pine-1..4.svg`, drawn to
+  match `home-daily-life.webp`: loblolly form, the same sage and olive greens,
+  warm trunks, needle texture. They are placed with percentage offsets and
+  widths, so the wood scales with the trail column and redistributes with
+  whatever height the rows take. Each is 7-9 KB and cached separately, so
+  nothing is added to the HTML payload.
+- **Gauges.** Full width above 980px; a 140px wood between 720 and 980, where
+  the rows also stack; a 104px wood below 720. The 980 breakpoint exists
+  because the three-column row was squeezing its body column to nothing in the
+  740-860 range and inflating the section to nearly 6000px.
+- Motion is unchanged — the trail draws downward, the waypoints land in
+  sequence, and the wood fades in with them. The reduced-motion block still
+  disables all three.
+
+The section copy is untouched: same six rows, same wording, same destinations.
