@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap">
+  <style>
+    body { margin: 0; font-family: Inter, system-ui, sans-serif; }
+    a { color: #f4e4c1; }
+    a:hover { color: #ffffff; }
+  </style>
+</helmet>
+
+<div style="width: 390px; background: #0a3a39; padding: 40px 20px 44px; box-sizing: border-box; color: #f7f2ea;">
+
+  <p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #f4e4c1;">Start where you are</p>
+  <div style="width: 56px; height: 3px; border-radius: 2px; background: #d4a04f; margin: 14px 0 24px;"></div>
+
+  <p style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 33px; font-weight: 400; line-height: 1.25; letter-spacing: -0.012em;">
+    I am here because of
+    <span style="border-bottom: 3px solid #d4a04f; padding-bottom: 3px; color: #f4e4c1; font-weight: 600;">{{ activeWord }}</span>.
+  </p>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px;">
+    <sc-for list="{{ options }}" as="opt" hint-placeholder-count="4">
+      <button type="button" onClick="{{ opt.pick }}" aria-pressed="{{ opt.selected }}" style="{{ opt.chipStyle }}">{{ opt.word }}</button>
+    </sc-for>
+  </div>
+
+  <div style="margin-top: 30px; padding-top: 26px; border-top: 1px solid rgba(247,242,234,0.22);">
+    <p style="margin: 0 0 20px; font-family: 'Source Serif 4', Georgia, serif; font-size: 22px; line-height: 1.35;">{{ activeLine }}</p>
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      <sc-for list="{{ activeLinks }}" as="link" hint-placeholder-count="3">
+        <a href="{{ link.href }}" style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(247,242,234,0.14); font-size: 17px; font-weight: 500; text-decoration: none; min-height: 48px; box-sizing: border-box;">
+          <span>{{ link.label }}</span>
+          <span style="color: #d4a04f;">&rarr;</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: 'family' };
+  }
+  data() {
+    return [
+      { id: 'family', word: 'my family', line: 'Someone I love is living with dementia.',
+        links: [
+          { label: 'Family &amp; caregiver resources', href: '/mhlc-resources.html' },
+          { label: 'What a day here would look like', href: '#vision' },
+          { label: 'Is the Center open yet?', href: '#families' }
+        ] },
+      { id: 'work', word: 'my work', line: 'I care for, or teach, the people who do this work.',
+        links: [
+          { label: 'The care model in full', href: '/mhlc-overview.html#care-model' },
+          { label: 'The campus and its classrooms', href: '#campus' },
+          { label: 'Letters of support', href: '/mhlc-letters-of-support.html' }
+        ] },
+      { id: 'community', word: 'my community', line: 'I live in East Texas and want to know what is being built here.',
+        links: [
+          { label: 'Location &amp; region', href: '#partners' },
+          { label: 'Where the project stands', href: '#progress' },
+          { label: 'Community events', href: '/mhlc-events.html' }
+        ] },
+      { id: 'giving', word: 'my giving', line: 'I want to help build it.',
+        links: [
+          { label: 'Ways to give', href: '/mhlc-give.html' },
+          { label: 'Where the money stands', href: '#give' },
+          { label: 'Talk with the Foundation', href: '/mhlc-contact.html' }
+        ] }
+    ];
+  }
+  renderVals() {
+    var picked = this.state.picked;
+    var all = this.data();
+    var active = all.filter(function (o) { return o.id === picked; })[0] || all[0];
+    var self = this;
+    return {
+      options: all.map(function (o) {
+        var on = o.id === picked;
+        return {
+          word: o.word,
+          selected: on,
+          chipStyle: 'font: inherit; font-size: 16px; font-weight: 500; padding: 13px 20px; border-radius: 999px; min-height: 48px; box-sizing: border-box; '
+            + (on
+              ? 'background: #f7f2ea; color: #0a3a39; border: 1px solid #f7f2ea;'
+              : 'background: transparent; color: #f7f2ea; border: 1px solid rgba(247,242,234,0.4);'),
+          pick: function () { self.setState({ picked: o.id }); }
+        };
+      }),
+      activeWord: active.word,
+      activeLine: active.line,
+      activeLinks: active.links
+    };
+  }
+}
+</script>
+</body>
+</html>
