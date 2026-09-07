@@ -3,7 +3,6 @@ import Image from "next/image";
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpen,
   GraduationCap,
   Home,
   MapPin,
@@ -70,10 +69,10 @@ export async function generateMetadata(): Promise<Metadata> {
 /* Figures below are the ones already published on the project-overview page.
    Nothing here introduces a new funding, partnership, or schedule claim. */
 const heroFacts = [
-  { value: "54", label: "Planned residences, apartment-style" },
-  { value: "29", label: "Acres adjacent to UT Health Quitman" },
+  { value: "54", label: "Planned residences" },
+  { value: "29", label: "Acres, next to UT Health Quitman" },
   { value: "$6M", label: "Federal earmark secured" },
-  { value: "2020", label: "The year the vision started, at a kitchen table" },
+  { value: "2020", label: "The year the vision began" },
 ];
 
 const responsePaths = [
@@ -337,10 +336,9 @@ export default async function Homepage() {
             />
             <div>
               <p className="home-need-statement">
-                A family in Wood County should not have to{" "}
-                <strong>leave East Texas</strong> to find good dementia care —
-                and the people who provide that care should be able to learn how
-                to do it well, here.
+                A family in Wood County should not have to leave East Texas to
+                find good dementia care — and the people who provide that care
+                should be able to learn how to do it well, here.
               </p>
               <p className="home-lead" style={{ marginTop: "1.5rem" }}>
                 {copy("need").body}
@@ -640,14 +638,7 @@ export default async function Homepage() {
                 <span className="home-proof-type">
                   Project document · PDF · 4.2 MB
                 </span>
-                <h3>
-                  <BookOpen
-                    size={26}
-                    aria-hidden="true"
-                    style={{ verticalAlign: "-4px", marginRight: ".5rem" }}
-                  />
-                  The MHLC project brief
-                </h3>
+                <h3>The MHLC project brief</h3>
                 <p>
                   Mission, model, site, and funding at a glance. For the latest
                   plans and funding needs, speak with the Foundation.
