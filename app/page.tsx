@@ -286,15 +286,32 @@ export default async function Homepage() {
                 id="response-heading"
               />
             </div>
-            <div className="home-response-grid">
-              {responsePaths.map((path) => (
-                <article key={path.audience}>
-                  <path.icon size={23} aria-hidden="true" />
-                  <p className="home-response-audience">{path.audience}</p>
-                  <h3>{path.title}</h3>
-                  <p>{path.text}</p>
-                </article>
-              ))}
+            <div className="home-response-layout">
+              <figure className="home-response-path" aria-hidden="true">
+                <Image
+                  src="/assets/home-response-path.webp"
+                  alt=""
+                  width={760}
+                  height={1602}
+                  sizes="(max-width: 850px) 100vw, 390px"
+                />
+                <div className="home-path-points">
+                  {responsePaths.map((path) => (
+                    <span key={path.audience} />
+                  ))}
+                </div>
+              </figure>
+              <div className="home-response-grid">
+                {responsePaths.map((path) => (
+                  <article key={path.audience}>
+                    <span className="home-response-dot" aria-hidden="true" />
+                    <path.icon size={22} aria-hidden="true" />
+                    <p className="home-response-audience">{path.audience}</p>
+                    <h3>{path.title}</h3>
+                    <p>{path.text}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
