@@ -328,26 +328,29 @@ export default async function Homepage() {
               body="Choose the one closest to yours. Each goes straight to the part of the project that answers it."
               id="paths-heading"
             />
-            <ul className="home-paths-list">
-              {responsePaths.map((path, index) => (
-                <li key={path.audience}>
-                  <a href={path.href}>
-                    <p className="home-path-audience">
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                      <span>{path.audience}</span>
-                    </p>
-                    <span className="home-path-body">
-                      <span className="home-path-title">{path.title}</span>
-                      <span className="home-path-text">{path.text}</span>
-                    </span>
-                    <span className="home-path-cue">
-                      {path.cue}
-                      <ArrowRight aria-hidden="true" />
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="home-paths-wrap">
+              <span className="home-paths-trail" aria-hidden="true" />
+              <ul className="home-paths-list">
+                {responsePaths.map((path, index) => (
+                  <li key={path.audience}>
+                    <a href={path.href}>
+                      <p className="home-path-audience">
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        <span>{path.audience}</span>
+                      </p>
+                      <span className="home-path-body">
+                        <span className="home-path-title">{path.title}</span>
+                        <span className="home-path-text">{path.text}</span>
+                      </span>
+                      <span className="home-path-cue">
+                        {path.cue}
+                        <ArrowRight aria-hidden="true" />
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
