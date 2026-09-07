@@ -122,6 +122,74 @@ const responsePaths = [
   },
 ];
 
+/* Decorative pines beside the trail. Widths and offsets are percentages of
+   the trail column, so the wood scales down with it on narrow screens. */
+const trailPines = [
+  {
+    src: "/assets/pine-1.svg",
+    w: 150,
+    h: 340,
+    s: 55,
+    x: "-28%",
+    y: "1%",
+    o: 0.3,
+  },
+  {
+    src: "/assets/pine-3.svg",
+    w: 120,
+    h: 250,
+    s: 44,
+    x: "54%",
+    y: "6%",
+    o: 0.26,
+  },
+  {
+    src: "/assets/pine-2.svg",
+    w: 130,
+    h: 300,
+    s: 50,
+    x: "-22%",
+    y: "25%",
+    o: 0.5,
+  },
+  {
+    src: "/assets/pine-4.svg",
+    w: 100,
+    h: 190,
+    s: 38,
+    x: "60%",
+    y: "39%",
+    o: 0.36,
+  },
+  {
+    src: "/assets/pine-1.svg",
+    w: 150,
+    h: 340,
+    s: 52,
+    x: "-26%",
+    y: "51%",
+    o: 0.54,
+  },
+  {
+    src: "/assets/pine-3.svg",
+    w: 120,
+    h: 250,
+    s: 42,
+    x: "56%",
+    y: "68%",
+    o: 0.4,
+  },
+  {
+    src: "/assets/pine-2.svg",
+    w: 130,
+    h: 300,
+    s: 48,
+    x: "-20%",
+    y: "80%",
+    o: 0.5,
+  },
+];
+
 const dayMoments = [
   {
     time: "Morning",
@@ -329,6 +397,26 @@ export default async function Homepage() {
               id="paths-heading"
             />
             <div className="home-paths-wrap">
+              <span className="home-paths-wood" aria-hidden="true">
+                {trailPines.map((pine, index) => (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    key={`${pine.src}-${index}`}
+                    src={pine.src}
+                    alt=""
+                    width={pine.w}
+                    height={pine.h}
+                    loading="lazy"
+                    decoding="async"
+                    style={{
+                      left: pine.x,
+                      top: pine.y,
+                      width: `${pine.s}%`,
+                      opacity: pine.o,
+                    }}
+                  />
+                ))}
+              </span>
               <span className="home-paths-trail" aria-hidden="true" />
               <ul className="home-paths-list">
                 {responsePaths.map((path, index) => (
