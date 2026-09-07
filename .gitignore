@@ -10,3 +10,6 @@ out
 next-env.d.ts
 .tsbuildinfo
 tsconfig.tsbuildinfo
+
+# Seeded design-canvas payloads (2.5 MB each; re-seeded from the .dc.html sources)
+design/**/mhlc-*.html

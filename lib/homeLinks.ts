@@ -7,4 +7,6 @@ export const homeLinks = {
   contact: "/mhlc-contact.html",
   supporters: "/mhlc-letters-of-support.html",
   recognition: "/mhlc-contributors.html",
+  events: "/mhlc-events.html",
+  admin: "/admin",
 };

@@ -59,3 +59,171 @@ Use case: illustration-story. Create a polished vertical illustrated path graphi
 - Major-gift interest goes to the existing contact page; no payment processor or dedicated donor intake was added.
 - No new funding amounts, opening dates, partnerships, clinical claims, or construction milestones were introduced. Current funding need, project-brief revision, land/design status, and next milestones require Foundation verification.
 - The existing Next.js 14.2.33 dependency has a reported security advisory. An appropriate framework/security update remains separate from this homepage-only change.
+
+---
+
+## Design-Director Critique and Revision — Pass 2
+
+Review date: September 7, 2026. Scope: homepage only. No secondary pages changed.
+
+### Reported problems, and what was done
+
+- **The hero fade fought the image and the type.** The previous hero laid the
+  headline over the campus rendering behind a horizontal cream wash that was
+  fully opaque across 43% of the frame and then feathered out through the
+  middle of the building. The rendering dissolved and the copy sat on a
+  gradient. Replaced with an editorial split: the copy occupies a solid warm
+  sand field, the rendering occupies its own column with a hard edge, at full
+  strength. Nothing is scrimmed and no text sits on an image. On narrow
+  screens the rendering leads and the headline follows on solid ground.
+- **The page title bar did not match the other pages.** The extra utility
+  strip above the header (which no other page has) is gone. The lockup,
+  height, cream ground, serif project name, all-caps Foundation line with the
+  clay underline, primary-navigation labels, and the clay **Donate** pill now
+  match the secondary HTML pages item for item. Navigation reads The Project ·
+  The Need · Progress · Families · Partners · Foundation · Contact, the same
+  seven labels the other pages use.
+- **Function links were missing.** `#partners` and `#need` anchors are
+  restored, so inbound links from the secondary pages resolve again. Project
+  overview, Family resources, Events, Letters of support, Honor roll, and Ways
+  to give are back in the footer, and the mobile menu carries the full set
+  under a "More from the Foundation" group.
+- **The Foundation CMS login was missing.** `Foundation Login` → `/admin` is
+  restored in the footer bottom bar, alongside the EIN, 501(c)(3) status, and
+  the all-rights-reserved line the other pages carry.
+
+### Design-director findings addressed in this pass
+
+- **Off-brand palette.** The homepage used its own teal, clay, sand, and ink
+  values that did not match `tailwind.config.ts` or any other page. Retokenized
+  to the exact brand palette; buttons are pills, matching `donate-cta`.
+- **Card grids.** The six-tile bordered icon grid became a numbered editorial
+  list with no boxes and no icons. The six campus places keep icons but lose
+  their frames.
+- **Missing signature idea.** Added the institution-versus-community contrast
+  the specification asks for, as an aligned two-column comparison that becomes
+  a "Usually / In Quitman" pair sequence on mobile. Framed around design
+  patterns, with an explicit note that it is not a comment on the people
+  providing dementia care today.
+- **Insufficient credibility; weak for major donors.** Added a fact bar under
+  the hero and a funding block in the giving section, using only figures
+  already published on the project-overview page. Added the site ownership,
+  hospital adjacency, and education relationship to the proof section.
+- **Visually disconnected from East Texas.** Added an original schematic
+  locator diagram (inline SVG, brand palette, no external library) built from
+  the distances published on the overview page, with the same figures repeated
+  as text beside it. The landscape photograph is recropped away from the
+  parked cars and outbuildings in the source frame.
+- **Typography.** Consolidated to one display ramp and one text ramp; removed
+  the flat `letter-spacing: 0` that was suppressing the brand's tracked
+  eyebrows.
+- **Mobile composition.** The campus becomes a snap-scrolling rail rather than
+  six more stacked blocks; the comparison becomes paired statements; the brand
+  lockup compacts to two lines and the Foundation line moves to the menu and
+  footer where it can be read. Page height at 390px is materially shorter than
+  the previous stacked version despite three additional sections.
+- **Accessibility.** Contrast raised on eyebrows, muted text, the funding note,
+  the mobile comparison tags, and the footer login; brand links given 24px
+  targets; the scrollable campus rail is focusable and labeled.
+
+### Verification
+
+- `npm run build` compiles; homepage first-load JavaScript unchanged at 98.6 kB.
+- Browser checks at 1600, 1440, 1280, 1024, 768, 600, 414, 390, 360, and 320:
+  no horizontal overflow, no console errors, no failed images.
+- axe-core WCAG 2.2 AA scans return zero violations at all ten widths. This is
+  not a substitute for real assistive-technology testing.
+- All internal links and in-page anchors resolve (verified by request).
+- Page content renders fully with JavaScript disabled.
+
+### Facts and provenance
+
+No new funding amounts, partnerships, dates, clinical claims, or construction
+milestones were introduced. Every figure on the page — 54 residences, 29 acres,
+adjacency to UT Health Quitman, the $6,000,000 federal earmark, the $60,000,000
+estimated build cost, $833,500+ in community gifts, the regional distances, the
+2020 origin, the Hogeweyk lineage and the Zeisel principles, and the UT Tyler
+School of Medicine relationship — is already published on
+`cms-pages/mhlc-overview.html` and is labeled here as planned or as of the most
+recent Foundation update, with a link back to that page.
+
+**For Foundation verification before publishing:** the community-gift total and
+the estimated build cost are point-in-time figures and should be confirmed as
+current. The federal earmark is described as secured, matching the overview
+page; `MEMORY_HEALTH_LIFE_CENTER_WEBSITE_FOUNDATION.md` notes it is contingent
+on a state match whose status needs an audit. Confirm which framing is correct
+before launch.
+
+### Follow-up — visitor-first ordering (September 7, 2026)
+
+Owner review found the page still opened on project statistics and that the
+audience section described the project rather than routing anyone anywhere.
+Both were fair against section 3 of the specification, which asks for an
+architecture organised around visitor intent.
+
+- **The audience list is now a wayfinding device, not copy.** Each of the six
+  rows is a link with a stated destination — a day at MHLC, for families, the
+  campus, the care model, location and region, ways to give — and the audience
+  labels are written in the first person ("I am caring for someone") so a
+  visitor recognises themselves. The section heading is now the prompt itself:
+  "Every visitor arrives with a different question."
+- **It moved to first position after the hero.** Orientation now precedes
+  narrative, so the second thing a visitor meets is a door rather than data.
+- **The fact bar moved down** to sit immediately above the proof section,
+  where the numbers answer "is this real?" instead of leading with the
+  project's dimensions. Its cells are also inset from the dividers, which had
+  the values sitting hard against the rules.
+- Section grounds were re-alternated for the new order (wayfinding on white,
+  the need on sand).
+
+No figures, facts, or destinations outside the existing site were introduced.
+
+### The trail (September 7, 2026)
+
+Concept A from the visitor-path explorations, built into the existing
+"Start where you are" section — the same six rows and destinations, drawn as
+a garden path.
+
+- The trail is one seamlessly tiling S-curve set as a repeating background,
+  so it stretches to whatever height the rows take rather than assuming a
+  fixed row height. CMS copy of any length keeps it intact.
+- Waypoints are a `::before` on each row, centred on the row at the trail's
+  horizontal midline. The meander amplitude is deliberately smaller than the
+  ribbon's half-width so a waypoint always sits within the path.
+- Both ends fade out under a mask rather than being cut off.
+- On narrow screens the ribbon and waypoints scale down together and the rows
+  stack; the trail keeps running down the left edge.
+- Motion: the trail draws downward over 1.2s and the waypoints land in
+  sequence as it passes them, triggered by the section's existing reveal
+  observer (or immediately when the section is already in view or JavaScript
+  is off). The file's reduced-motion block disables both; the resting state
+  is the visible one.
+
+The trail is decorative — an `aria-hidden` span and CSS pseudo-elements — so
+nothing in the routing depends on seeing it.
+
+### The piney woods (September 7, 2026)
+
+The trail is drawn more prominently and the path now runs through a wood.
+
+- **The ribbon** widened from a 26px band to 48px with a soft inner edge in
+  place of the earlier dashed centre line, which read as ladder rungs at that
+  width. The meander widened with it. Amplitude is still deliberately smaller
+  than the ribbon's half-width so a waypoint always sits on the path — that
+  constraint is what keeps the trail adaptive to variable row heights instead
+  of needing fixed rows.
+- **The pines** are four SVG assets in `public/assets/pine-1..4.svg`, drawn to
+  match `home-daily-life.webp`: loblolly form, the same sage and olive greens,
+  warm trunks, needle texture. They are placed with percentage offsets and
+  widths, so the wood scales with the trail column and redistributes with
+  whatever height the rows take. Each is 7-9 KB and cached separately, so
+  nothing is added to the HTML payload.
+- **Gauges.** Full width above 980px; a 140px wood between 720 and 980, where
+  the rows also stack; a 104px wood below 720. The 980 breakpoint exists
+  because the three-column row was squeezing its body column to nothing in the
+  740-860 range and inflating the section to nearly 6000px.
+- Motion is unchanged — the trail draws downward, the waypoints land in
+  sequence, and the wood fades in with them. The reduced-motion block still
+  disables all three.
+
+The section copy is untouched: same six rows, same wording, same destinations.
