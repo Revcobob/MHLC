@@ -172,3 +172,27 @@ architecture organised around visitor intent.
   the need on sand).
 
 No figures, facts, or destinations outside the existing site were introduced.
+
+### The trail (September 7, 2026)
+
+Concept A from the visitor-path explorations, built into the existing
+"Start where you are" section — the same six rows and destinations, drawn as
+a garden path.
+
+- The trail is one seamlessly tiling S-curve set as a repeating background,
+  so it stretches to whatever height the rows take rather than assuming a
+  fixed row height. CMS copy of any length keeps it intact.
+- Waypoints are a `::before` on each row, centred on the row at the trail's
+  horizontal midline. The meander amplitude is deliberately smaller than the
+  ribbon's half-width so a waypoint always sits within the path.
+- Both ends fade out under a mask rather than being cut off.
+- On narrow screens the ribbon and waypoints scale down together and the rows
+  stack; the trail keeps running down the left edge.
+- Motion: the trail draws downward over 1.2s and the waypoints land in
+  sequence as it passes them, triggered by the section's existing reveal
+  observer (or immediately when the section is already in view or JavaScript
+  is off). The file's reduced-motion block disables both; the resting state
+  is the visible one.
+
+The trail is decorative — an `aria-hidden` span and CSS pseudo-elements — so
+nothing in the routing depends on seeing it.
