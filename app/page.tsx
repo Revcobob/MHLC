@@ -70,41 +70,55 @@ export async function generateMetadata(): Promise<Metadata> {
    Nothing here introduces a new funding, partnership, or schedule claim. */
 const heroFacts = [
   { value: "54", label: "Planned residences" },
-  { value: "29", label: "Acres, next to UT Health Quitman" },
+  { value: "29", label: "Acres, next to the hospital" },
   { value: "$6M", label: "Federal earmark secured" },
   { value: "2020", label: "The year the vision began" },
 ];
 
+/* Each row is a door, not a description: every visitor type gets a
+   destination that answers the question they arrived with. */
 const responsePaths = [
   {
-    audience: "The person living with dementia",
-    title: "A residential model, not a hallway.",
+    audience: "I am living with dementia",
+    title: "See what a day here looks like.",
     text: "Homes, gardens, paths, and shared places planned around the shape of an ordinary day.",
+    href: "#vision",
+    cue: "A day at MHLC",
   },
   {
-    audience: "Families",
-    title: "Understanding, and somewhere to start.",
-    text: "Resources and updates that explain what is being built, what exists today, and where to find help now.",
+    audience: "I am caring for someone",
+    title: "Find help today, and answers about later.",
+    text: "Whether the Center is open, when families can ask about availability, and where to turn right now.",
+    href: "#families",
+    cue: "For families",
   },
   {
-    audience: "Caregivers & healthcare workers",
-    title: "Training close to home.",
-    text: "The campus is planned to support learning for the people who provide dementia care across East Texas.",
+    audience: "I work in dementia care",
+    title: "See where training would happen.",
+    text: "A clinic, classrooms, and student housing are planned so caregivers and clinicians can learn on site.",
+    href: "#campus",
+    cue: "The campus",
   },
   {
-    audience: "Healthcare & universities",
-    title: "A place to learn from.",
-    text: "A clinic, classrooms, and student housing are planned so medical and allied-health students can learn on site.",
+    audience: "I am a clinician or educator",
+    title: "Read the care model in full.",
+    text: "The Hogeweyk lineage, the five principles behind it, and the education wing the European models do not have.",
+    href: `${homeLinks.center}#care-model`,
+    cue: "The care model",
   },
   {
-    audience: "East Texas",
-    title: "Regional memory-health capacity.",
-    text: "One shared point of focus for dementia care, family understanding, and community readiness.",
+    audience: "I live in East Texas",
+    title: "See what this means for the region.",
+    text: "Where the campus sits, what it is near, and why the location was chosen.",
+    href: "#partners",
+    cue: "Location & region",
   },
   {
-    audience: "Donors & foundations",
-    title: "A model with reach beyond the campus.",
-    text: "Philanthropy here helps demonstrate an approach whose value extends past the people who will live on it.",
+    audience: "I want to help build it",
+    title: "See where the project stands, and what it needs.",
+    text: "What is funded, what is not, and how to talk with the Foundation about a larger commitment.",
+    href: "#give",
+    cue: "Ways to give",
   },
 ];
 
@@ -301,28 +315,43 @@ export default async function Homepage() {
           </div>
         </section>
 
-        {/* ---------- Credibility bar ---------- */}
-        <div className="home-facts">
-          <div className="home-container">
-            <ul className="home-facts-list">
-              {heroFacts.map((fact) => (
-                <li key={fact.label}>
-                  <span className="home-facts-value">{fact.value}</span>
-                  <span className="home-facts-label">{fact.label}</span>
+        {/* ---------- Where to start: the first thing after the hero ---------- */}
+        <section
+          id="start"
+          className="home-section home-paths"
+          aria-labelledby="paths-heading"
+        >
+          <div className="home-container" data-home-reveal>
+            <HomeHeading
+              eyebrow="Start where you are"
+              heading="Every visitor arrives with a different question."
+              body="Choose the one closest to yours. Each goes straight to the part of the project that answers it."
+              id="paths-heading"
+            />
+            <ul className="home-paths-list">
+              {responsePaths.map((path, index) => (
+                <li key={path.audience}>
+                  <a href={path.href}>
+                    <p className="home-path-audience">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <span>{path.audience}</span>
+                    </p>
+                    <span className="home-path-body">
+                      <span className="home-path-title">{path.title}</span>
+                      <span className="home-path-text">{path.text}</span>
+                    </span>
+                    <span className="home-path-cue">
+                      {path.cue}
+                      <ArrowRight aria-hidden="true" />
+                    </span>
+                  </a>
                 </li>
               ))}
             </ul>
-            <p className="home-facts-source">
-              Planned figures for a project in development.{" "}
-              <a href={homeLinks.center}>
-                See the site, the model, and the numbers
-              </a>
-              .
-            </p>
           </div>
-        </div>
+        </section>
 
-        {/* ---------- The need, and who it answers for ---------- */}
+        {/* ---------- The need ---------- */}
         <section
           id="need"
           className="home-section home-need"
@@ -344,32 +373,6 @@ export default async function Homepage() {
                 {copy("need").body}
               </p>
             </div>
-          </div>
-        </section>
-
-        <section
-          className="home-section home-paths"
-          aria-labelledby="paths-heading"
-        >
-          <div className="home-container" data-home-reveal>
-            <HomeHeading
-              eyebrow="What that means"
-              heading="One project. Six different reasons to care about it."
-              body="Every visitor arrives with a different question. Here is the part of the work that answers yours."
-              id="paths-heading"
-            />
-            <ol className="home-paths-list">
-              {responsePaths.map((path, index) => (
-                <li key={path.audience}>
-                  <p className="home-path-audience">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <span>{path.audience}</span>
-                  </p>
-                  <h3>{path.title}</h3>
-                  <p className="home-path-text">{path.text}</p>
-                </li>
-              ))}
-            </ol>
           </div>
         </section>
 
@@ -620,6 +623,27 @@ export default async function Homepage() {
             </div>
           </div>
         </section>
+
+        {/* ---------- Credibility bar ---------- */}
+        <div className="home-facts">
+          <div className="home-container">
+            <ul className="home-facts-list">
+              {heroFacts.map((fact) => (
+                <li key={fact.label}>
+                  <span className="home-facts-value">{fact.value}</span>
+                  <span className="home-facts-label">{fact.label}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="home-facts-source">
+              Planned figures for a project in development.{" "}
+              <a href={homeLinks.center}>
+                See the site, the model, and the numbers
+              </a>
+              .
+            </p>
+          </div>
+        </div>
 
         {/* ---------- Proof ---------- */}
         <section

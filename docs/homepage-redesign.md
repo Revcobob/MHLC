@@ -148,3 +148,27 @@ current. The federal earmark is described as secured, matching the overview
 page; `MEMORY_HEALTH_LIFE_CENTER_WEBSITE_FOUNDATION.md` notes it is contingent
 on a state match whose status needs an audit. Confirm which framing is correct
 before launch.
+
+### Follow-up — visitor-first ordering (September 7, 2026)
+
+Owner review found the page still opened on project statistics and that the
+audience section described the project rather than routing anyone anywhere.
+Both were fair against section 3 of the specification, which asks for an
+architecture organised around visitor intent.
+
+- **The audience list is now a wayfinding device, not copy.** Each of the six
+  rows is a link with a stated destination — a day at MHLC, for families, the
+  campus, the care model, location and region, ways to give — and the audience
+  labels are written in the first person ("I am caring for someone") so a
+  visitor recognises themselves. The section heading is now the prompt itself:
+  "Every visitor arrives with a different question."
+- **It moved to first position after the hero.** Orientation now precedes
+  narrative, so the second thing a visitor meets is a door rather than data.
+- **The fact bar moved down** to sit immediately above the proof section,
+  where the numbers answer "is this real?" instead of leading with the
+  project's dimensions. Its cells are also inset from the dividers, which had
+  the values sitting hard against the rules.
+- Section grounds were re-alternated for the new order (wayfinding on white,
+  the need on sand).
+
+No figures, facts, or destinations outside the existing site were introduced.
