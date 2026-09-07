@@ -2,6 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  async redirects() {
+    return [
+      { source: "/mhlc-homepage.html", destination: "/", permanent: true },
+      { source: "/api/page/homepage", destination: "/", permanent: true },
+    ];
+  },
   // The original static HTML files live in /cms-pages (outside /public so
   // Next.js doesn't short-circuit our route handler). Public requests for
   // `/mhlc-<slug>.html` are rewritten to an API route that reads the file,
@@ -9,21 +15,20 @@ const nextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
-        { source: '/', destination: '/api/page/homepage' },
-        { source: '/mhlc-:slug.html', destination: '/api/page/:slug' }
-      ]
+        { source: "/mhlc-:slug.html", destination: "/api/page/:slug" },
+      ],
     };
   },
   // Vercel's serverless bundler doesn't trace fs.readFile() arguments, so
   // we explicitly tell it to include /cms-pages with the route handler.
-  outputFileTracingIncludes: {
-    '/api/page/[slug]': ['./cms-pages/**/*']
+  experimental: {
+    outputFileTracingIncludes: {
+      "/api/page/[slug]": ["./cms-pages/**/*"],
+    },
   },
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: '*.supabase.co' }
-    ]
-  }
+    remotePatterns: [{ protocol: "https", hostname: "*.supabase.co" }],
+  },
 };
 
 export default nextConfig;
