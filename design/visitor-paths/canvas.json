@@ -1,48 +1,116 @@
 {
+  "pages": [
+    { "id": "page-1", "name": "The trail" },
+    { "id": "page-2", "name": "Not chosen" }
+  ],
   "artboards": [
-    { "file": "Main.dc.html", "title": "A — The Path", "x": 0, "y": 0, "w": 1440, "h": 940 },
-    { "file": "Sentence.dc.html", "title": "B — Finish the sentence", "x": 1560, "y": 0, "w": 1440, "h": 940, "is_interactive": true },
-    { "file": "TwoWorlds.dc.html", "title": "C — Two ways in", "x": 3120, "y": 0, "w": 1440, "h": 940 },
-    { "file": "PathMobile.dc.html", "title": "A — mobile", "x": 0, "y": 1120, "w": 390, "h": 900 },
-    { "file": "SentenceMobile.dc.html", "title": "B — mobile", "x": 520, "y": 1120, "w": 390, "h": 900, "is_interactive": true },
-    { "file": "TwoWorldsMobile.dc.html", "title": "C — mobile", "x": 1040, "y": 1120, "w": 390, "h": 900 }
+    {
+      "file": "Main.dc.html",
+      "title": "The trail — desktop",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1270,
+      "page": "page-1"
+    },
+    {
+      "file": "PathMobile.dc.html",
+      "title": "The trail — mobile",
+      "x": 1560,
+      "y": 0,
+      "w": 390,
+      "h": 1350,
+      "page": "page-1"
+    },
+    {
+      "file": "Pines.dc.html",
+      "title": "The pines",
+      "x": 2070,
+      "y": 0,
+      "w": 900,
+      "h": 770,
+      "page": "page-1"
+    },
+    {
+      "file": "Sentence.dc.html",
+      "title": "B — Finish the sentence",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 940,
+      "page": "page-2",
+      "is_interactive": true
+    },
+    {
+      "file": "TwoWorlds.dc.html",
+      "title": "C — Two ways in",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 940,
+      "page": "page-2"
+    },
+    {
+      "file": "SentenceMobile.dc.html",
+      "title": "B — mobile",
+      "x": 0,
+      "y": 1120,
+      "w": 390,
+      "h": 900,
+      "page": "page-2",
+      "is_interactive": true
+    },
+    {
+      "file": "TwoWorldsMobile.dc.html",
+      "title": "C — mobile",
+      "x": 520,
+      "y": 1120,
+      "w": 390,
+      "h": 900,
+      "page": "page-2"
+    }
   ],
   "annotations": [
     {
       "id": "brief",
       "x": 0,
-      "y": -280,
-      "w": 620,
-      "text": "Three ways to route visitors from the MHLC landing page into the rest of the site.\n\nAll three replace the section that currently sits under the hero. The global nav bar stays identical to the secondary pages in every option — this device lives in the page body, so the homepage can speak in the visitor's voice without breaking the site's navigation.\n\nEvery link points at a destination that already exists."
+      "y": -300,
+      "w": 640,
+      "text": "THE TRAIL — the chosen direction, now drawn as a path through the piney woods.\n\nThe ribbon is much more pronounced than the first build: a 46px band with a full S-curve meander, waypoints sitting on it rather than beside it, and a leader line out to each row.\n\nThe copy is untouched — same six rows, same wording, same destinations as the live page.",
+      "page": "page-1"
     },
     {
       "id": "axes",
       "x": 700,
-      "y": -280,
-      "w": 620,
-      "text": "Each concept explores a different axis, not three shades of one idea:\n\nA — spatial metaphor. Navigation drawn as a garden path.\nB — conversational. The visitor completes a sentence about themselves.\nC — structural. The page forks into two honest halves.\n\nB's chips work — click them. A and C are static."
+      "y": -300,
+      "w": 640,
+      "text": "THE PINES are drawn to match the daily-life illustration already on the page: loblolly form (tall bare trunks, high open crowns, drooping branch layers), the same sage and olive greens, warm grey-brown trunks, soft edges and fine needle texture.\n\nThey are vector, so they cost nothing in page weight and stay crisp at any size. Scale and opacity vary per tree to give the wood depth — nearer trees larger and stronger, further ones smaller and paler.",
+      "page": "page-1"
     },
     {
       "id": "note-a",
       "x": 0,
-      "y": 990,
-      "w": 500,
-      "text": "A — THE PATH\n\nWhy: the project's whole thesis is paths, gardens and walking rather than corridors. Navigation that IS a path is the most on-brand device available and unmistakably theirs. Six audiences, no interaction cost, reads top to bottom.\n\nTradeoff: the illustration has to stay this restrained or it turns twee. It is the safest of the three and the least surprising."
+      "y": 1320,
+      "w": 560,
+      "text": "Both ends of the ribbon fade rather than stopping dead, so the path reads as continuing past the section. The pines fade at the foot for the same reason.\n\nOn mobile the trail keeps its meander at a narrower gauge and the pines sit to its left, mostly behind — the wood is suggested rather than spelled out, because there is no room to spell it out at 390px.",
+      "page": "page-1"
     },
     {
       "id": "note-b",
-      "x": 1560,
+      "x": 0,
       "y": 990,
       "w": 500,
-      "text": "B — FINISH THE SENTENCE\n\nWhy: speaks in the visitor's voice instead of the institution's, and turns a nav problem into a human sentence. One click, nothing leaves the page, and the panel can hold richer content than a row.\n\nTradeoff: needs JavaScript (all four panels must render without it), and four options is the ceiling before it stops reading as a sentence — so clinicians and region get folded into 'my work' and 'my community'."
+      "text": "B — FINISH THE SENTENCE\n\nNot chosen. Kept for the record: the visitor completes a sentence about themselves and the panel beneath swaps. The chips work — click them.",
+      "page": "page-2"
     },
     {
       "id": "note-c",
-      "x": 3120,
+      "x": 1560,
       "y": 990,
       "w": 500,
-      "text": "C — TWO WAYS IN\n\nWhy: zero reading required to self-select, and it is honest that this site does two very different jobs. Strongest of the three for donors, who currently scroll past family content to reach anything for them. Stacks to mobile unchanged.\n\nTradeoff: six audiences collapse to two. The hard visual split could read as a divide rather than one community — the line underneath is there to soften it."
+      "text": "C — TWO WAYS IN\n\nNot chosen. Kept for the record: the page forks into living-this and helping-build-it. Still the clearest of the three for major donors, if that ever becomes the priority.",
+      "page": "page-2"
     }
   ],
-  "launch": { "view": "canvas" }
+  "launch": { "view": "canvas", "page": "page-1" }
 }
