@@ -21,7 +21,6 @@ import {
 import {
   HomeMotion,
   MobileNavigation,
-  PathHighlight,
   SubscribeForm,
 } from "@/components/public/HomeInteractions";
 import { getHomeContent, safeHomeHref, sectionCopy } from "@/lib/homepage";
@@ -322,53 +321,49 @@ export default async function Homepage() {
           className="home-section home-paths"
           aria-labelledby="paths-heading"
         >
-          <figure className="home-paths-photo">
-            <Image
-              src="/assets/trail-path-web.webp"
-              alt=""
-              width={455}
-              height={1530}
-              sizes="(max-width: 720px) 240px, 300px"
-              quality={86}
-            />
-            <figcaption>
-              A brighter path
-              <br />
-              for East Texas.
-            </figcaption>
-          </figure>
-          <div className="home-paths-inner" data-home-reveal>
-            <HomeHeading
-              eyebrow="Start where you are"
-              heading="Every visitor arrives with a different question."
-              body="Choose the one closest to yours. Each goes straight to the part of the project that answers it."
-              id="paths-heading"
-            />
-            <div className="home-paths-wrap">
-              <span className="home-paths-marker" aria-hidden="true" />
-              <ul className="home-paths-list">
-                {responsePaths.map((path, index) => (
-                  <li key={path.audience}>
-                    <a href={path.href}>
-                      <p className="home-path-audience">
-                        <span>{String(index + 1).padStart(2, "0")}</span>
-                        <span>{path.audience}</span>
-                      </p>
-                      <span className="home-path-body">
-                        <span className="home-path-title">{path.title}</span>
-                        <span className="home-path-text">{path.text}</span>
-                      </span>
-                      <span className="home-path-cue">
-                        {path.cue}
-                        <ArrowRight aria-hidden="true" />
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          <div className="home-container" data-home-reveal>
+            <div className="home-paths-layout">
+              <figure className="home-paths-rail">
+                <Image
+                  src="/assets/home-start-path-rail.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 720px) 96px, (max-width: 1100px) 180px, 230px"
+                />
+                <figcaption>
+                  <span>A brighter path for East Texas.</span>
+                </figcaption>
+              </figure>
+              <div className="home-paths-content">
+                <HomeHeading
+                  eyebrow="Start where you are"
+                  heading="Every visitor arrives with a different question."
+                  body="Choose the one closest to yours. Each goes straight to the part of the project that answers it."
+                  id="paths-heading"
+                />
+                <ul className="home-paths-list">
+                  {responsePaths.map((path, index) => (
+                    <li key={path.audience}>
+                      <a href={path.href}>
+                        <p className="home-path-audience">
+                          <span>{String(index + 1).padStart(2, "0")}</span>
+                          <span>{path.audience}</span>
+                        </p>
+                        <span className="home-path-body">
+                          <span className="home-path-title">{path.title}</span>
+                          <span className="home-path-text">{path.text}</span>
+                        </span>
+                        <span className="home-path-cue">
+                          {path.cue}
+                          <ArrowRight aria-hidden="true" />
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-          <PathHighlight />
         </section>
 
         {/* ---------- The need ---------- */}
