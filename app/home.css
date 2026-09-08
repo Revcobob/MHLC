@@ -304,7 +304,9 @@ html:has(.mhlc-home) {
 }
 .home-brand-foundation {
   display: block;
-  padding-block: 0.28rem;
+  /* 11px text at 1.35 leaves a 14.85px box; this clears the 24px WCAG 2.2
+     target-size minimum with a little room, rather than landing on 23.8px. */
+  padding-block: 0.33rem;
   font-size: 0.6875rem;
   line-height: 1.35;
   letter-spacing: 0.14em;
@@ -654,6 +656,9 @@ html:has(.mhlc-home) {
 }
 .home-paths-content .home-heading .home-lead {
   max-width: 76ch;
+  /* Two or three lines at most, so even them out rather than letting a long
+     first line strand a short tail. Matches the headings, which balance too. */
+  text-wrap: balance;
 }
 
 .home-paths-list {
@@ -668,7 +673,10 @@ html:has(.mhlc-home) {
 }
 .home-paths-list a {
   display: grid;
-  grid-template-columns: minmax(10rem, 0.9fr) minmax(18rem, 2.1fr) minmax(8rem, 0.75fr);
+  grid-template-columns: minmax(10rem, 0.9fr) minmax(18rem, 2.1fr) minmax(
+      8rem,
+      0.75fr
+    );
   align-items: baseline;
   gap: clamp(1.25rem, 2.5vw, 3rem);
   min-height: 120px;

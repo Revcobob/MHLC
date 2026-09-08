@@ -337,8 +337,8 @@ export default async function Homepage() {
               <div className="home-paths-content">
                 <HomeHeading
                   eyebrow="Start where you are"
-                  heading="Every visitor arrives with a different question."
-                  body="Choose the one closest to yours. Each goes straight to the part of the project that answers it."
+                  heading="What brought you here?"
+                  body="Choose the one closest to your answer. Each goes straight to the part of the project that speaks to it."
                   id="paths-heading"
                 />
                 <ul className="home-paths-list">
