@@ -580,108 +580,80 @@ html:has(.mhlc-home) {
   max-width: 34ch;
 }
 
-/* ---------- Visitor paths: a photographed trail beside the choices ----------
-
-   The section is two columns: a photograph of an East Texas trail bleeding to
-   the left edge of the viewport at the section's full height, and the six
-   choices to its right. As the page scrolls, a translucent block tracks the
-   choice nearest the reading line (see PathHighlight), so the list reads as a
-   walk down the trail rather than a table of links. */
+/* ---------- Visitor paths: a narrow East Texas trail beside the choices ---------- */
 
 .home-paths {
-  position: relative;
+  background: linear-gradient(90deg, #fffaf2 0%, #fff 28%, #fff 100%);
+}
+.home-paths .home-container {
+  max-width: none;
+  padding-inline: clamp(1.25rem, 2.3vw, 2rem);
+}
+.home-paths-layout {
   display: grid;
-  grid-template-columns: var(--photo-w, clamp(200px, 19vw, 292px)) minmax(
-      0,
-      1fr
-    );
-  gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  grid-template-columns: clamp(180px, 18vw, 240px) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: stretch;
-  padding-block: 0;
-  /* White, so the alternation with the sand hero above and the sand need
-     section below still separates the three. The photograph carries the
-     warmth on its own. */
-  background: #fff;
+}
+.home-paths-rail {
+  position: relative;
+  align-self: stretch;
+  min-height: 980px;
+  margin: 0;
   overflow: hidden;
+  isolation: isolate;
 }
-
-.home-paths-photo {
-  /* The artwork is a torn strip with a transparent ground, so this figure
-     carries no fill and no scrim of its own — anything drawn here would show
-     through the deckled edge. The image keeps its natural proportions and is
-     never cropped, so the torn edge survives at every width. */
-  position: sticky;
-  top: clamp(1rem, 11vh, 7rem);
-  align-self: start;
-  /* Margin, not padding: it lines the strip up with the copy at rest without
-     adding a permanent offset once the figure sticks. */
-  margin: var(--band) 0 0;
-  padding-left: var(--gutter);
+.home-paths-rail img {
+  object-fit: cover;
+  object-position: center top;
 }
-.home-paths-photo img {
+.home-paths-rail::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 34%;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(31, 36, 33, 0) 0%,
+    rgba(31, 36, 33, 0.34) 48%,
+    rgba(31, 36, 33, 0.58) 100%
+  );
+  pointer-events: none;
+}
+.home-paths-rail figcaption {
+  position: absolute;
+  left: clamp(1rem, 2vw, 1.45rem);
+  bottom: clamp(1.4rem, 3vw, 2.2rem);
+  z-index: 2;
+  max-width: 10ch;
+  color: #fffaf2;
+}
+.home-paths-rail figcaption span {
   display: block;
-  width: 100%;
-  height: auto;
-  /* Scaled down rather than cropped when the column is taller than the
-     viewport, so the whole strip including both torn edges stays visible. */
-  max-height: calc(100vh - 9rem);
-  object-fit: contain;
-  object-position: left top;
-}
-/* The caption sits on the page below the strip, not over it: a transparent
-   artwork has nothing to hold white type. */
-.home-paths-photo figcaption {
-  margin-top: 1.1rem;
-  padding-left: var(--gutter);
   font-family: var(--serif);
-  font-size: clamp(1.05rem, 0.95rem + 0.35vw, 1.25rem);
-  font-weight: 600;
+  font-size: clamp(1.35rem, 1.1rem + 0.6vw, 1.7rem);
+  font-style: italic;
+  font-weight: 500;
   line-height: 1.28;
-  letter-spacing: -0.012em;
-  color: var(--teal);
+  text-wrap: balance;
 }
-.home-paths-photo figcaption::before {
+.home-paths-rail figcaption::after {
   content: "";
   display: block;
-  width: 40px;
-  height: 3px;
-  margin-bottom: 0.7rem;
+  width: 56px;
+  height: 2px;
+  margin-top: 1rem;
   background: var(--gold);
 }
-
-.home-paths-inner {
-  padding-block: var(--band);
-  /* The right edge lines up with the 1280px shell the rest of the page uses,
-     so only the photograph bleeds out of the grid. */
-  padding-right: max(var(--gutter), calc((100vw - 1280px) / 2));
-  max-width: 1040px;
+.home-paths-content {
+  min-width: 0;
 }
-
-.home-paths-wrap {
-  position: relative;
-  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
+.home-paths-content .home-heading {
+  max-width: 980px;
 }
-
-/* The translucent block that follows the reading line. Sized and placed from
-   custom properties set by PathHighlight; hidden entirely without JS. */
-.home-paths-marker {
-  position: absolute;
-  left: calc(-1 * clamp(0.75rem, 1.4vw, 1.25rem));
-  right: calc(-1 * clamp(0.75rem, 1.4vw, 1.25rem));
-  top: var(--marker-top, 0);
-  height: var(--marker-height, 0);
-  z-index: 0;
-  border-radius: 4px;
-  background: rgba(15, 76, 74, 0.06);
-  box-shadow: inset 3px 0 0 var(--gold);
-  opacity: 0;
-  transition:
-    top 0.42s cubic-bezier(0.33, 0.8, 0.4, 1),
-    height 0.42s cubic-bezier(0.33, 0.8, 0.4, 1),
-    opacity 0.3s ease;
-}
-.home-paths-wrap.is-tracking .home-paths-marker {
-  opacity: 1;
+.home-paths-content .home-heading .home-lead {
+  max-width: 64ch;
 }
 
 .home-paths-list {
@@ -689,27 +661,31 @@ html:has(.mhlc-home) {
   z-index: 1;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
 }
 .home-paths-list li {
   position: relative;
 }
 .home-paths-list a {
   display: grid;
-  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) minmax(0, 9.5rem);
+  grid-template-columns: minmax(10rem, 0.9fr) minmax(18rem, 2.1fr) minmax(8rem, 0.75fr);
   align-items: baseline;
-  gap: 0.4rem clamp(1.25rem, 2.6vw, 2.5rem);
-  padding: clamp(1.15rem, 1.9vw, 1.5rem) 0;
+  gap: clamp(1.25rem, 2.5vw, 3rem);
+  min-height: 120px;
+  padding: clamp(1.3rem, 2.2vw, 1.65rem) 0;
   border-bottom: 1px solid var(--sand-deep);
   text-decoration: none;
-  transition: transform 0.24s cubic-bezier(0.33, 0.8, 0.4, 1);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
 }
 .home-paths-list li:first-child a {
   border-top: 1px solid var(--sand-deep);
 }
 .home-paths-list li.is-current a,
 .home-paths-list a:hover {
-  transform: translateX(6px);
+  background: color-mix(in srgb, var(--sand) 36%, transparent);
+  border-color: #dfd2bd;
 }
 
 .home-path-audience {
@@ -1747,55 +1723,111 @@ html:has(.mhlc-home) {
   }
 }
 
-/* Below this the three-column row would squeeze the body column to nothing,
-   so each choice stacks and the photograph narrows with it. */
 @media (max-width: 980px) {
-  .home-paths {
-    --photo-w: clamp(150px, 21vw, 210px);
+  .home-paths-layout {
+    grid-template-columns: 180px minmax(0, 1fr);
     gap: 1.75rem;
+  }
+  .home-paths-rail {
+    min-height: 1020px;
+  }
+  .home-paths-rail figcaption {
+    left: 1rem;
+    bottom: 1.5rem;
   }
   .home-paths-list a {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 0.45rem;
+    min-height: 0;
+    padding-block: 1.35rem;
   }
   .home-path-cue {
     grid-column: 1;
     grid-row: auto;
     justify-self: start;
-    margin-top: 0.35rem;
+    margin-top: 0.25rem;
   }
 }
 
 @media (max-width: 720px) {
-  /* Too narrow for a column beside the rows: the trail leads the section
-     instead, full width, and the choices follow it. */
   .home-paths {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
+    background: linear-gradient(90deg, #fffaf2 0%, #fff 36%, #fff 100%);
   }
-  /* No room for a column beside the rows: the strip leads the section,
-     capped so it stays a strip rather than a full-height band. */
-  .home-paths-photo {
-    position: static;
-    margin: 0;
-    padding: clamp(2rem, 7vw, 3rem) var(--gutter) 0;
+  .home-paths-layout {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 1.15rem;
   }
-  .home-paths-photo img {
-    max-width: 240px;
-    max-height: 44vh;
-    width: auto;
+  .home-paths-rail {
+    min-height: 1040px;
   }
-  .home-paths-photo figcaption {
-    padding-left: 0;
-    margin-top: 0.9rem;
+  .home-paths-rail img {
+    object-position: 18% top;
   }
-  .home-paths-inner {
-    padding-inline: var(--gutter);
-    padding-top: clamp(2rem, 6vw, 3rem);
+  .home-paths-rail::after {
+    height: 26%;
   }
-  .home-paths-marker {
-    left: -0.6rem;
-    right: -0.6rem;
+  .home-paths-rail figcaption {
+    left: 0.75rem;
+    right: 0.55rem;
+    bottom: 1.1rem;
+  }
+  .home-paths-rail figcaption span {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+  .home-paths-rail figcaption::after {
+    width: 36px;
+    margin-top: 0.75rem;
+  }
+  .home-paths-content .home-heading h2 {
+    font-size: clamp(2rem, 1.35rem + 5vw, 2.55rem);
+  }
+  .home-paths-content .home-heading .home-lead {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .home-paths-list {
+    margin-top: 1.6rem;
+  }
+  .home-paths-list a {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    min-height: 0;
+    padding-block: 1.15rem;
+  }
+  .home-path-cue {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-paths-layout {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+  .home-paths-rail {
+    min-height: 1100px;
+  }
+  .home-paths-rail figcaption {
+    display: none;
+  }
+  .home-path-audience {
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+  .home-path-title {
+    font-size: 1.2rem;
+  }
+  .home-path-text {
+    font-size: var(--text-micro);
+    line-height: 1.62;
+  }
+  .home-path-cue {
+    font-size: var(--text-micro);
   }
   .home-day-art img {
     aspect-ratio: 1.6;

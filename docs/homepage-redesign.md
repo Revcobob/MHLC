@@ -35,7 +35,8 @@ Original source assets remain unchanged.
 | `public/assets/home-woodland.webp` | Optimized from the existing `foundation-hero-pond-web.jpg`. Landscape imagery, not evidence of construction or completion. |
 | `public/assets/home-daily-life.webp` | Original AI-generated editorial illustration, explicitly captioned as an envisioned day. Does not depict actual residents. |
 | `public/assets/trail-path.png` | The supplied trail artwork: a photograph of an East Texas pine trail cut out against a transparent ground with a deckled, torn edge. Kept as the source. |
-|  `public/assets/trail-path-web.webp` | Derived from `trail-path.png` for the page: the transparent margin trimmed to the artwork's alpha bounding box (1024x1536 to 455x1530) and encoded as WebP with alpha, 2.2 MB to 314 KB. Landscape imagery, not evidence of construction or completion. |
+| `public/assets/trail-path-web.webp` | Derived from `trail-path.png`: the transparent margin trimmed to the artwork's alpha bounding box (1024x1536 to 455x1530) and encoded as WebP with alpha, 2.2 MB to 314 KB. Preserved for reference, but no longer used on the homepage after the rail-layout revision. |
+| `public/assets/home-start-path-rail.webp` | Original AI-generated East Texas pine woodland path illustration, cropped and optimized into a narrow editorial rail for the "Start where you are" section. No people, buildings, logos, labels, or documentary claims. |
 | `public/assets/mhlc-brand-icon-512.png` | Existing brand mark, retained. |
 | `public/assets/Brief Overview MHLC project.pdf` | Existing project document, linked without alteration. Confirm revision date and current applicability with the Foundation. |
 
@@ -43,9 +44,9 @@ Original source assets remain unchanged.
 
 Use case: illustration-story. Create one polished editorial illustration for the Memory Health Life Center website: an envisioned residential community for adults living with dementia in East Texas. Wide panoramic composition, 3:2 landscape. Warm welcoming dignified scene at human scale: a modest timber and stone home with broad shaded porch at left, gently curving accessible garden path through native plantings and tall pine and oak trees in center, raised garden beds and a small shared outdoor table at right. A few adult older neighbors with varied skin tones are tending a raised garden, walking together and sharing tea; natural respectful adult proportions, not cartoon caricatures. Hand-painted gouache and pencil architectural editorial illustration on very light warm-white paper, restrained forest teal, sage greens, muted clay red, pale sky blue, warm natural timber. Delicate fine line detail, sophisticated contemporary magazine illustration, calm daylight and generous breathing room. Fill the whole composition, no card frame, no text, no lettering, no logos, no labels, no separate panels. Clearly an illustration, never photorealistic, not a claim about actual residents or an actual completed campus. Prioritize buildings, garden and ordinary connection rather than exaggerated facial expressions. Render excellent quality at 1536 by 1024 or higher.
 
-### Visitor-Path Tree Treatment
+### Start-Section Image Rail Treatment
 
-The visitor-path section uses a CSS-drawn path with animated waypoints and small pine SVG accents placed around the rail. The accents should stay quiet: no full background image, no dense woodland texture, and no documentary-looking photography.
+The "Start where you are" section uses a two-column editorial composition matching the approved reference: a narrow left rail with a sunlit East Texas woodland path and a right content field with the heading and six visitor rows. The rail runs the full height of the row group on desktop and remains as a slimmer left-side visual on mobile so the journey structure stays recognizable without crowding the text.
 
 ## Validation and Deployment Notes
 
@@ -235,40 +236,32 @@ The section copy is untouched: same six rows, same wording, same destinations.
 
 ### A photographed trail (September 8, 2026)
 
-The drawn pines are gone. Two attempts at illustrating the wood — flat vector
-wedges, then watercolour needle dabs under a turbulence filter — both read as
-cartoonish beside the campus rendering, so the section now uses a photograph
-of an East Texas trail instead of a drawing of one.
+The drawn pines and interim transparent strip are no longer used on the
+homepage. The final treatment follows the supplied reference proportion more
+closely: a narrow East Texas woodland path rail on the left, with the heading
+and six visitor choices in a clean editorial field to the right.
 
-- **The photograph** (`public/assets/trail-path.webp`) is a full-height column
-  bleeding to the left edge of the viewport, sized
-  `clamp(200px, 19vw, 292px)`. The section is a two-column grid rather than a
-  container, and only the right column carries the shell's padding, so the
-  photo reaches the viewport edge while the copy still lines up with the
-  1280px shell used everywhere else. A gradient foot and a gold rule carry the
-  white serif caption, "A brighter path for East Texas."
-- **The moving block.** `PathHighlight` measures which choice sits nearest the
-  reading line (45% of viewport height) on each scroll frame and writes
-  `--marker-top` and `--marker-height` onto the list wrapper. A translucent
-  teal block with a gold left edge eases between those positions, and the
-  matching row slides 6px right — so the six choices read as walked rather
-  than skimmed. It is decorative only: without JavaScript, or under reduced
-  motion, nothing is drawn, the tracking class is never applied, and the rows
-  behave exactly as they do without it. Rows fade up in sequence on reveal.
-- **Gauges.** Photo and rows side by side above 980px; below 980 the row's
-  three columns stack and the photo narrows to `clamp(150px, 21vw, 210px)`;
-  below 720 the photo becomes a full-width 2.15 band leading the section, with
-  the choices following it.
-- **Ground.** The section stays white. Sand above (hero) and sand below (the
-  need section) means a cream ground here would run the three together.
+- **The rail image** (`public/assets/home-start-path-rail.webp`) runs the full
+  height of the choice list on desktop and becomes a slimmer visual spine on
+  mobile. It is intentionally atmospheric, contains no people or documentary
+  claims, and keeps the residential-community story tied to East Texas without
+  turning the section into a generic photo block.
+- **The rows** remain the journey mechanism. They are not cards; each visitor
+  question reads as one horizontal editorial row with a number, audience label,
+  short answer, supporting copy, and a quiet destination cue.
+- **Gauges.** Rail and rows sit side by side above 980px. Below 980px, each row
+  stacks internally while the rail remains beside the content. At phone widths,
+  the rail narrows to a quiet visual spine, the caption is hidden, and the copy
+  column keeps enough width for comfortable reading.
+- **Ground.** A very light left-to-right warm ground supports the rail without
+  making the section read as a separate card or a generic healthcare module.
 
-The ribbon, waypoint, and pine CSS was removed with the assets. The section
-copy is untouched: same six rows, same wording, same destinations.
+The ribbon, waypoint, moving-marker, and pine CSS was removed from the active
+page treatment. The section copy is untouched: same six rows, same wording,
+same destinations.
 
-> The image currently committed at `public/assets/trail-path.webp` is a
-> placeholder cropped from `home-woodland.webp`. Replace it with the supplied
-> trail photograph at roughly 760x1080 or larger; the crop is anchored at
-> `object-position: 62% center` so the trail stays in frame.
+The supplied transparent artwork remains available as `trail-path.png` and
+`trail-path-web.webp`, but it is not rendered on the homepage.
 
 ### Hero rendering swapped (September 8, 2026)
 
@@ -309,17 +302,10 @@ have destroyed that, and all three are gone:
   down rather than crops) and is inset from the viewport edge by one gutter,
   so the deckle on both sides is fully visible.
 - **The caption over the image.** White type needs something to sit on. It
-  now sits on the page below the strip, in teal over a gold rule, and the
-  figure is no longer `aria-hidden` so the caption is read out.
+  rail stays beside the content instead of stacking above it. At phone widths
+  the caption is hidden, the rail narrows, and the choices stack internally so
+  the text remains readable with no horizontal overflow.
 
-The strip is `position: sticky` and travels with the reader while the six
-choices scroll past it. On mobile it leads the section, capped at 240px wide
-and 44vh tall so it stays a strip rather than becoming a band.
-
-The supplied artwork arrived as `trail-path.png` (1024x1536, alpha). Its
-strip occupies only the middle ~45% of that canvas, so the page uses
-`trail-path-web.webp` instead: the same picture trimmed to its alpha bounding
-box with four pixels of margin, so the strip fills its column rather than
-floating in empty canvas, and encoded as WebP with alpha — 2.2 MB down to
-314 KB, which matters on the rural-mobile connections the redesign spec calls
-out. `trail-path.png` stays in the repo as the source.
+The supplied artwork remains in the repo as `trail-path.png`, with
+`trail-path-web.webp` preserved as its optimized derivative for reference, but
+the homepage now uses `home-start-path-rail.webp`.
