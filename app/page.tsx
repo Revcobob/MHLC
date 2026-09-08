@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import {
@@ -22,6 +21,7 @@ import {
 import {
   HomeMotion,
   MobileNavigation,
+  PathHighlight,
   SubscribeForm,
 } from "@/components/public/HomeInteractions";
 import { getHomeContent, safeHomeHref, sectionCopy } from "@/lib/homepage";
@@ -121,20 +121,6 @@ const responsePaths = [
     href: "#give",
     cue: "Ways to give",
   },
-];
-
-/* Decorative pines flanking the trail. Every tree is the same size and
-   weight — only the drawing varies — so the wood reads as an even rhythm
-   rather than an arbitrary jumble of scales. Vertical positions are
-   percentages, so the spacing holds at whatever height the rows take. */
-const trailPines = [
-  { src: "/assets/pine-1.svg", x: "-3%", y: "1%" },
-  { src: "/assets/pine-3.svg", x: "59%", y: "14%" },
-  { src: "/assets/pine-2.svg", x: "-3%", y: "27%" },
-  { src: "/assets/pine-4.svg", x: "59%", y: "40%" },
-  { src: "/assets/pine-3.svg", x: "-3%", y: "53%" },
-  { src: "/assets/pine-1.svg", x: "59%", y: "66%" },
-  { src: "/assets/pine-4.svg", x: "-3%", y: "79%" },
 ];
 
 const dayMoments = [
@@ -336,7 +322,22 @@ export default async function Homepage() {
           className="home-section home-paths"
           aria-labelledby="paths-heading"
         >
-          <div className="home-container" data-home-reveal>
+          <figure className="home-paths-photo" aria-hidden="true">
+            <Image
+              src="/assets/trail-path.webp"
+              alt=""
+              width={760}
+              height={1080}
+              sizes="(max-width: 720px) 100vw, 300px"
+              quality={86}
+            />
+            <figcaption>
+              A brighter path
+              <br />
+              for East Texas.
+            </figcaption>
+          </figure>
+          <div className="home-paths-inner" data-home-reveal>
             <HomeHeading
               eyebrow="Start where you are"
               heading="Every visitor arrives with a different question."
@@ -344,27 +345,7 @@ export default async function Homepage() {
               id="paths-heading"
             />
             <div className="home-paths-wrap">
-              <span className="home-paths-wood" aria-hidden="true">
-                {trailPines.map((pine, index) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    key={`${pine.src}-${index}`}
-                    src={pine.src}
-                    alt=""
-                    width={112}
-                    height={260}
-                    loading="lazy"
-                    decoding="async"
-                    style={
-                      {
-                        "--pine-x": pine.x,
-                        top: pine.y,
-                      } as CSSProperties
-                    }
-                  />
-                ))}
-              </span>
-              <span className="home-paths-trail" aria-hidden="true" />
+              <span className="home-paths-marker" aria-hidden="true" />
               <ul className="home-paths-list">
                 {responsePaths.map((path, index) => (
                   <li key={path.audience}>
@@ -387,6 +368,7 @@ export default async function Homepage() {
               </ul>
             </div>
           </div>
+          <PathHighlight />
         </section>
 
         {/* ---------- The need ---------- */}

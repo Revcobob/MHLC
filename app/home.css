@@ -578,179 +578,147 @@ html:has(.mhlc-home) {
   max-width: 34ch;
 }
 
-/* ---------- Visitor paths: an editorial list, not a card grid ---------- */
+/* ---------- Visitor paths: a photographed trail beside the choices ----------
+
+   The section is two columns: a photograph of an East Texas trail bleeding to
+   the left edge of the viewport at the section's full height, and the six
+   choices to its right. As the page scrolls, a translucent block tracks the
+   choice nearest the reading line (see PathHighlight), so the list reads as a
+   walk down the trail rather than a table of links. */
 
 .home-paths {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--photo-w, clamp(200px, 19vw, 292px)) minmax(
+      0,
+      1fr
+    );
+  gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  align-items: stretch;
+  padding-block: 0;
+  /* White, so the alternation with the sand hero above and the sand need
+     section below still separates the three. The photograph carries the
+     warmth on its own. */
   background: #fff;
+  overflow: hidden;
 }
-/* The trail: one seamlessly tiling S-curve, so it stretches to whatever
-   height the rows take rather than assuming a fixed row height. */
+
+.home-paths-photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--teal-deep, #0b3937);
+}
+.home-paths-photo img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Anchored to the trail, so the crop keeps the path and its torn edge
+     whatever height the six rows end up taking. */
+  object-fit: cover;
+  object-position: 62% center;
+}
+/* A soft foot to the photograph so white type has something to sit on. */
+.home-paths-photo::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 58%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(12, 34, 32, 0.12) 34%,
+    rgba(12, 34, 32, 0.66)
+  );
+}
+.home-paths-photo figcaption {
+  position: absolute;
+  left: clamp(1.1rem, 1.6vw, 1.75rem);
+  right: clamp(1.1rem, 1.6vw, 1.75rem);
+  bottom: clamp(1.5rem, 2.6vw, 2.5rem);
+  z-index: 1;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 0.95rem + 0.6vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.012em;
+  color: #fff;
+  text-shadow: 0 1px 14px rgba(10, 28, 26, 0.55);
+}
+.home-paths-photo figcaption::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-bottom: 0.85rem;
+  background: var(--gold);
+}
+
+.home-paths-inner {
+  padding-block: var(--band);
+  /* The right edge lines up with the 1280px shell the rest of the page uses,
+     so only the photograph bleeds out of the grid. */
+  padding-right: max(var(--gutter), calc((100vw - 1280px) / 2));
+  max-width: 1040px;
+}
+
 .home-paths-wrap {
   position: relative;
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
 }
-.home-paths-wood {
+
+/* The translucent block that follows the reading line. Sized and placed from
+   custom properties set by PathHighlight; hidden entirely without JS. */
+.home-paths-marker {
   position: absolute;
-  left: 0;
-  top: -26px;
-  bottom: -26px;
-  width: 200px;
-  overflow: hidden;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    transparent 0,
-    #000 5%,
-    #000 88%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    transparent 0,
-    #000 5%,
-    #000 88%,
-    transparent 100%
-  );
+  left: calc(-1 * clamp(0.75rem, 1.4vw, 1.25rem));
+  right: calc(-1 * clamp(0.75rem, 1.4vw, 1.25rem));
+  top: var(--marker-top, 0);
+  height: var(--marker-height, 0);
+  z-index: 0;
+  border-radius: 4px;
+  background: rgba(15, 76, 74, 0.06);
+  box-shadow: inset 3px 0 0 var(--gold);
+  opacity: 0;
+  transition:
+    top 0.42s cubic-bezier(0.33, 0.8, 0.4, 1),
+    height 0.42s cubic-bezier(0.33, 0.8, 0.4, 1),
+    opacity 0.3s ease;
 }
-.home-paths-wood img {
-  position: absolute;
-  display: block;
-  left: var(--pine-x);
-  width: 72px;
-  height: auto;
-  opacity: 0.62;
+.home-paths-wrap.is-tracking .home-paths-marker {
+  opacity: 1;
 }
-.home-paths-trail {
-  position: absolute;
-  left: 0;
-  top: -22px;
-  bottom: -22px;
-  width: 200px;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='280' viewBox='0 0 200 280'%3E%3Cg fill='none'%3E%3Cpath d='M64 0 C 64 30 78 42 78 70 C 78 98 64 110 64 140 C 64 170 50 182 50 210 C 50 238 64 250 64 280' stroke='%23e4d9c4' stroke-width='48'/%3E%3Cpath d='M64 0 C 64 30 78 42 78 70 C 78 98 64 110 64 140 C 64 170 50 182 50 210 C 50 238 64 250 64 280' stroke='%23efe7d9' stroke-width='44'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-y;
-  background-position: left top;
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    transparent 0,
-    #000 44px,
-    #000 calc(100% - 44px),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    transparent 0,
-    #000 44px,
-    #000 calc(100% - 44px),
-    transparent 100%
-  );
-}
+
 .home-paths-list {
+  position: relative;
+  z-index: 1;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-/* Motion runs once the section is revealed (or immediately, when it is
-   already in view or JavaScript is off). The reduced-motion block at the
-   end of this file disables it; the resting state is the visible one. */
-[data-home-reveal]:not(.home-reveal-pending) .home-paths-trail {
-  animation: home-trail-draw 1.2s cubic-bezier(0.33, 0.8, 0.4, 1) both;
-}
-[data-home-reveal]:not(.home-reveal-pending) .home-paths-wood {
-  animation: home-wood-in 1.4s ease-out both;
-}
-[data-home-reveal]:not(.home-reveal-pending) .home-paths-list li::before {
-  animation: home-waypoint-in 0.45s cubic-bezier(0.34, 1.4, 0.64, 1) both;
-}
-.home-paths-list li:nth-child(1)::before {
-  animation-delay: 0.16s;
-}
-.home-paths-list li:nth-child(2)::before {
-  animation-delay: 0.33s;
-}
-.home-paths-list li:nth-child(3)::before {
-  animation-delay: 0.5s;
-}
-.home-paths-list li:nth-child(4)::before {
-  animation-delay: 0.67s;
-}
-.home-paths-list li:nth-child(5)::before {
-  animation-delay: 0.84s;
-}
-.home-paths-list li:nth-child(6)::before {
-  animation-delay: 1.01s;
-}
-@keyframes home-trail-draw {
-  from {
-    clip-path: inset(0 0 100% 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-@keyframes home-wood-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes home-waypoint-in {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.3);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
 .home-paths-list li {
   position: relative;
-  padding-left: 232px;
-}
-/* A waypoint on the trail, centred on the row whatever height it is. */
-.home-paths-list li::before {
-  content: "";
-  position: absolute;
-  left: 64px;
-  top: 50%;
-  z-index: 1;
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 9px #fff;
-  transform: translate(-50%, -50%);
 }
 .home-paths-list a {
   display: grid;
   grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) minmax(0, 9.5rem);
   align-items: baseline;
   gap: 0.4rem clamp(1.25rem, 2.6vw, 2.5rem);
-  padding: clamp(1.35rem, 2.2vw, 1.75rem) clamp(0.75rem, 1.5vw, 1.25rem);
-  margin-right: clamp(-1.25rem, -1.5vw, -0.75rem);
+  padding: clamp(1.15rem, 1.9vw, 1.5rem) 0;
   border-bottom: 1px solid var(--sand-deep);
   text-decoration: none;
-  transition: background-color 0.18s ease;
+  transition: transform 0.24s cubic-bezier(0.33, 0.8, 0.4, 1);
 }
 .home-paths-list li:first-child a {
   border-top: 1px solid var(--sand-deep);
 }
+.home-paths-list li.is-current a,
 .home-paths-list a:hover {
-  background: var(--sand);
+  transform: translateX(6px);
 }
-.home-paths-list li:hover::before,
-.home-paths-list li:focus-within::before {
-  box-shadow:
-    0 0 0 9px #fff,
-    0 0 0 13px var(--gold-pale);
-}
-.home-paths-list li::before {
-  transition: box-shadow 0.18s ease;
-}
+
 .home-path-audience {
   display: flex;
   align-items: baseline;
@@ -807,10 +775,46 @@ html:has(.mhlc-home) {
 .home-path-cue svg {
   width: 16px;
   height: 16px;
-  transition: transform 0.18s ease;
+  transition: transform 0.24s ease;
 }
+.home-paths-list li.is-current .home-path-cue svg,
 .home-paths-list a:hover .home-path-cue svg {
   transform: translateX(4px);
+}
+
+/* Entry motion. Runs once the section is revealed, or immediately when it is
+   already in view or JavaScript is off; the reduced-motion block at the end of
+   this file disables it, and the resting state is the visible one. */
+[data-home-reveal]:not(.home-reveal-pending) .home-paths-list li {
+  animation: home-path-row-in 0.5s cubic-bezier(0.33, 0.8, 0.4, 1) both;
+}
+.home-paths-list li:nth-child(1) {
+  animation-delay: 0.06s;
+}
+.home-paths-list li:nth-child(2) {
+  animation-delay: 0.14s;
+}
+.home-paths-list li:nth-child(3) {
+  animation-delay: 0.22s;
+}
+.home-paths-list li:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.home-paths-list li:nth-child(5) {
+  animation-delay: 0.38s;
+}
+.home-paths-list li:nth-child(6) {
+  animation-delay: 0.46s;
+}
+@keyframes home-path-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- A day: full-bleed illustration + timeline ---------- */
@@ -1751,38 +1755,15 @@ html:has(.mhlc-home) {
 }
 
 /* Below this the three-column row would squeeze the body column to nothing,
-   so the rows stack and the wood narrows with them. */
+   so each choice stacks and the photograph narrows with it. */
 @media (max-width: 980px) {
-  .home-paths-wood,
-  .home-paths-trail {
-    width: 140px;
-  }
-  .home-paths-trail {
-    background-size: 140px 196px;
-  }
-  .home-paths-wood img {
-    width: 56px;
-  }
-  .home-paths-list li {
-    padding-left: 168px;
-  }
-  .home-paths-list li::before {
-    left: 45px;
-    width: 13px;
-    height: 13px;
-    box-shadow: 0 0 0 7px #fff;
-  }
-  .home-paths-list li:hover::before,
-  .home-paths-list li:focus-within::before {
-    box-shadow:
-      0 0 0 7px #fff,
-      0 0 0 11px var(--gold-pale);
+  .home-paths {
+    --photo-w: clamp(150px, 21vw, 210px);
+    gap: 1.75rem;
   }
   .home-paths-list a {
     grid-template-columns: 1fr;
     gap: 0.5rem;
-    padding-inline: 0;
-    margin-right: 0;
   }
   .home-path-cue {
     grid-column: 1;
@@ -1793,45 +1774,28 @@ html:has(.mhlc-home) {
 }
 
 @media (max-width: 720px) {
-  .home-paths-wood,
-  .home-paths-trail {
-    width: 104px;
+  /* Too narrow for a column beside the rows: the trail leads the section
+     instead, full width, and the choices follow it. */
+  .home-paths {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
-  .home-paths-trail {
-    background-size: 104px 146px;
+  .home-paths-photo {
+    aspect-ratio: 2.15;
   }
-  /* At this gauge the ribbon would cover a tree placed to its left, so the
-     whole wood moves to the clear side of the path. */
-  .home-paths-wood img {
-    left: 52%;
-    width: 46px;
+  .home-paths-photo img {
+    object-position: center 58%;
   }
-  .home-paths-list li {
-    padding-left: 124px;
+  .home-paths-photo::after {
+    height: 72%;
   }
-  .home-paths-list li::before {
-    left: 33px;
-    width: 11px;
-    height: 11px;
-    box-shadow: 0 0 0 6px #fff;
+  .home-paths-inner {
+    padding-inline: var(--gutter);
+    padding-top: clamp(2rem, 6vw, 3rem);
   }
-  .home-paths-list li:hover::before,
-  .home-paths-list li:focus-within::before {
-    box-shadow:
-      0 0 0 6px #fff,
-      0 0 0 9px var(--gold-pale);
-  }
-  .home-paths-list a {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    padding-inline: 0;
-    margin-right: 0;
-  }
-  .home-path-cue {
-    grid-column: 1;
-    grid-row: auto;
-    justify-self: start;
-    margin-top: 0.35rem;
+  .home-paths-marker {
+    left: -0.6rem;
+    right: -0.6rem;
   }
   .home-day-art img {
     aspect-ratio: 1.6;

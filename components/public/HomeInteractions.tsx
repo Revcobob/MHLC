@@ -322,3 +322,69 @@ export function SubscribeForm({ captchaSiteKey }: { captchaSiteKey: string }) {
     </form>
   );
 }
+
+/**
+ * A translucent block that follows the choice nearest the reading line as the
+ * page scrolls, so the list feels walked rather than skimmed. Purely
+ * decorative: without JavaScript, or under reduced motion, nothing is drawn
+ * and the rows behave exactly as they do now.
+ */
+export function PathHighlight() {
+  useEffect(() => {
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motion.matches) return;
+    const wrap = document.querySelector<HTMLElement>(".home-paths-wrap");
+    const marker = wrap?.querySelector<HTMLElement>(".home-paths-marker");
+    const rows = wrap
+      ? Array.from(wrap.querySelectorAll<HTMLElement>(".home-paths-list li"))
+      : [];
+    if (!wrap || !marker || rows.length === 0) return;
+
+    let frame = 0;
+    const place = () => {
+      frame = 0;
+      const line = window.innerHeight * 0.45;
+      const box = wrap.getBoundingClientRect();
+      // Only track while the list is actually on screen.
+      if (box.bottom < 0 || box.top > window.innerHeight) {
+        wrap.classList.remove("is-tracking");
+        return;
+      }
+      let best = rows[0];
+      let bestGap = Infinity;
+      for (const row of rows) {
+        const r = row.getBoundingClientRect();
+        const gap = Math.abs(r.top + r.height / 2 - line);
+        if (gap < bestGap) {
+          bestGap = gap;
+          best = row;
+        }
+      }
+      const r = best.getBoundingClientRect();
+      wrap.style.setProperty("--marker-top", `${r.top - box.top}px`);
+      wrap.style.setProperty("--marker-height", `${r.height}px`);
+      wrap.classList.add("is-tracking");
+      for (const row of rows) row.classList.toggle("is-current", row === best);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(place);
+    };
+
+    place();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    const stop = () => {
+      wrap.classList.remove("is-tracking");
+      for (const row of rows) row.classList.remove("is-current");
+    };
+    motion.addEventListener("change", stop);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      motion.removeEventListener("change", stop);
+      stop();
+    };
+  }, []);
+  return null;
+}
