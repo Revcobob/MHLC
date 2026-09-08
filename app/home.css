@@ -592,13 +592,11 @@ html:has(.mhlc-home) {
 .home-paths-wood {
   position: absolute;
   left: 0;
-  top: -36px;
-  bottom: -36px;
+  top: -22px;
+  bottom: -22px;
   width: 200px;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
-  border-radius: 999px;
-  background: #f2eadb;
   -webkit-mask-image: linear-gradient(
     180deg,
     transparent 0,
@@ -614,16 +612,14 @@ html:has(.mhlc-home) {
     transparent 100%
   );
 }
-.home-paths-wood img {
+.home-path-pine {
   position: absolute;
   display: block;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 48% center;
-  opacity: 0.58;
-  filter: saturate(0.9) contrast(0.95);
+  width: var(--pine-width);
+  height: auto;
+  max-width: none;
+  opacity: 0.36;
+  filter: saturate(0.82) contrast(0.92);
   mix-blend-mode: multiply;
 }
 .home-paths-trail {
@@ -1763,6 +1759,10 @@ html:has(.mhlc-home) {
   .home-paths-trail {
     width: 140px;
   }
+  .home-path-pine {
+    width: min(var(--pine-width), 38px);
+    opacity: 0.32;
+  }
   .home-paths-trail {
     background-size: 140px 196px;
   }
@@ -1799,6 +1799,10 @@ html:has(.mhlc-home) {
   .home-paths-wood,
   .home-paths-trail {
     width: 104px;
+  }
+  .home-path-pine {
+    width: min(var(--pine-width), 28px);
+    opacity: 0.24;
   }
   .home-paths-trail {
     background-size: 104px 146px;
