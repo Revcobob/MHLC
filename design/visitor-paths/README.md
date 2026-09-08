@@ -3,6 +3,12 @@
 Source for the design canvas published at
 https://claude.ai/code/artifact/bff3327f-d247-41ca-adbb-0ce5e2fd74e9
 
+> **Superseded, September 8, 2026.** The drawn pines were rejected as
+> cartoonish next to the campus watercolour, and the section now uses a
+> photograph of an East Texas trail as a full-height column instead. These
+> artboards are kept as the record of how the trail idea was arrived at; the
+> live implementation no longer matches them.
+
 ## Page 1 — the trail (chosen)
 
 The visitor-path section drawn as a path through the East Texas piney woods.

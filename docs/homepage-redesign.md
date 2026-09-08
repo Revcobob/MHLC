@@ -231,3 +231,40 @@ The trail is drawn more prominently and the path now runs through a wood.
   disables all three.
 
 The section copy is untouched: same six rows, same wording, same destinations.
+
+### A photographed trail (September 8, 2026)
+
+The drawn pines are gone. Two attempts at illustrating the wood — flat vector
+wedges, then watercolour needle dabs under a turbulence filter — both read as
+cartoonish beside the campus rendering, so the section now uses a photograph
+of an East Texas trail instead of a drawing of one.
+
+- **The photograph** (`public/assets/trail-path.webp`) is a full-height column
+  bleeding to the left edge of the viewport, sized
+  `clamp(200px, 19vw, 292px)`. The section is a two-column grid rather than a
+  container, and only the right column carries the shell's padding, so the
+  photo reaches the viewport edge while the copy still lines up with the
+  1280px shell used everywhere else. A gradient foot and a gold rule carry the
+  white serif caption, "A brighter path for East Texas."
+- **The moving block.** `PathHighlight` measures which choice sits nearest the
+  reading line (45% of viewport height) on each scroll frame and writes
+  `--marker-top` and `--marker-height` onto the list wrapper. A translucent
+  teal block with a gold left edge eases between those positions, and the
+  matching row slides 6px right — so the six choices read as walked rather
+  than skimmed. It is decorative only: without JavaScript, or under reduced
+  motion, nothing is drawn, the tracking class is never applied, and the rows
+  behave exactly as they do without it. Rows fade up in sequence on reveal.
+- **Gauges.** Photo and rows side by side above 980px; below 980 the row's
+  three columns stack and the photo narrows to `clamp(150px, 21vw, 210px)`;
+  below 720 the photo becomes a full-width 2.15 band leading the section, with
+  the choices following it.
+- **Ground.** The section stays white. Sand above (hero) and sand below (the
+  need section) means a cream ground here would run the three together.
+
+The ribbon, waypoint, and pine CSS was removed with the assets. The section
+copy is untouched: same six rows, same wording, same destinations.
+
+> The image currently committed at `public/assets/trail-path.webp` is a
+> placeholder cropped from `home-woodland.webp`. Replace it with the supplied
+> trail photograph at roughly 760x1080 or larger; the crop is anchored at
+> `object-position: 62% center` so the trail stays in frame.
