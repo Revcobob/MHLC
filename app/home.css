@@ -615,7 +615,10 @@ html:has(.mhlc-home) {
 .home-paths-wood img {
   position: absolute;
   display: block;
+  left: var(--pine-x);
+  width: 72px;
   height: auto;
+  opacity: 0.62;
 }
 .home-paths-trail {
   position: absolute;
@@ -1757,6 +1760,9 @@ html:has(.mhlc-home) {
   .home-paths-trail {
     background-size: 140px 196px;
   }
+  .home-paths-wood img {
+    width: 56px;
+  }
   .home-paths-list li {
     padding-left: 168px;
   }
@@ -1793,6 +1799,12 @@ html:has(.mhlc-home) {
   }
   .home-paths-trail {
     background-size: 104px 146px;
+  }
+  /* At this gauge the ribbon would cover a tree placed to its left, so the
+     whole wood moves to the clear side of the path. */
+  .home-paths-wood img {
+    left: 52%;
+    width: 46px;
   }
   .home-paths-list li {
     padding-left: 124px;

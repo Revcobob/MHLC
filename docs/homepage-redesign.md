@@ -207,12 +207,16 @@ The trail is drawn more prominently and the path now runs through a wood.
   than the ribbon's half-width so a waypoint always sits on the path — that
   constraint is what keeps the trail adaptive to variable row heights instead
   of needing fixed rows.
-- **The pines** are four SVG assets in `public/assets/pine-1..4.svg`, drawn to
-  match `home-daily-life.webp`: loblolly form, the same sage and olive greens,
-  warm trunks, needle texture. They are placed with percentage offsets and
-  widths, so the wood scales with the trail column and redistributes with
-  whatever height the rows take. Each is 7-9 KB and cached separately, so
-  nothing is added to the HTML payload.
+- **The pines** are four SVG assets in `public/assets/pine-1..4.svg`. The
+  first attempt drew them as flat vector wedges in two greens, which read as
+  cartoonish next to the watercolour campus rendering, and varying their
+  scale made the wood look arbitrary rather than deep. They are now built the
+  way a watercolour is: many small, low-opacity needle dabs that build tone
+  where they overlap, under a turbulence displacement filter that gives every
+  edge a ragged painted quality instead of a geometric curve. Every tree is
+  the same size and weight — only the drawing varies across four seeds — and
+  they alternate either side of the path in an even rhythm. Each is 16-19 KB
+  and cached separately, so nothing is added to the HTML payload.
 - **Gauges.** Full width above 980px; a 140px wood between 720 and 980, where
   the rows also stack; a 104px wood below 720. The 980 breakpoint exists
   because the three-column row was squeezing its body column to nothing in the
