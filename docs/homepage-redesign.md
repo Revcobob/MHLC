@@ -34,7 +34,8 @@ Original source assets remain unchanged.
 | `public/assets/home-campus-aerial.webp` | Optimized from `hero-campus-rendering-web2.png` (1672x941, 2.9 MB PNG to 312 KB WebP). The hero rendering. Labeled a concept rendering, not a completed facility or architect-approved drawing. Original authorship/approval needs owner verification. Supersedes `home-campus.webp`, which is kept in place in case a CMS row still points at it. |
 | `public/assets/home-woodland.webp` | Optimized from the existing `foundation-hero-pond-web.jpg`. Landscape imagery, not evidence of construction or completion. |
 | `public/assets/home-daily-life.webp` | Original AI-generated editorial illustration, explicitly captioned as an envisioned day. Does not depict actual residents. |
-| `public/assets/trail-path.png` | **Placeholder.** A torn strip generated from `home-woodland.webp` standing in for the supplied trail artwork, which has never been available to the build as a file. Replace it in place: a PNG with a transparent ground and a deckled edge, portrait, roughly 470x1536 or larger. Landscape imagery, not evidence of construction or completion. |
+| `public/assets/trail-path.png` | The supplied trail artwork: a photograph of an East Texas pine trail cut out against a transparent ground with a deckled, torn edge. Kept as the source. |
+|  `public/assets/trail-path-web.webp` | Derived from `trail-path.png` for the page: the transparent margin trimmed to the artwork's alpha bounding box (1024x1536 to 455x1530) and encoded as WebP with alpha, 2.2 MB to 314 KB. Landscape imagery, not evidence of construction or completion. |
 | `public/assets/mhlc-brand-icon-512.png` | Existing brand mark, retained. |
 | `public/assets/Brief Overview MHLC project.pdf` | Existing project document, linked without alteration. Confirm revision date and current applicability with the Foundation. |
 
@@ -315,7 +316,10 @@ The strip is `position: sticky` and travels with the reader while the six
 choices scroll past it. On mobile it leads the section, capped at 240px wide
 and 44vh tall so it stays a strip rather than becoming a band.
 
-> `public/assets/trail-path.png` is a **placeholder**, generated from
-> `home-woodland.webp` with a synthetic torn alpha edge to prove the layout.
-> It is not the supplied artwork — that file has never reached the build.
-> Dropping the real PNG in at the same path is the only change needed.
+The supplied artwork arrived as `trail-path.png` (1024x1536, alpha). Its
+strip occupies only the middle ~45% of that canvas, so the page uses
+`trail-path-web.webp` instead: the same picture trimmed to its alpha bounding
+box with four pixels of margin, so the strip fills its column rather than
+floating in empty canvas, and encoded as WebP with alpha — 2.2 MB down to
+314 KB, which matters on the rural-mobile connections the redesign spec calls
+out. `trail-path.png` stays in the repo as the source.

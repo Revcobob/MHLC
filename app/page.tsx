@@ -324,10 +324,10 @@ export default async function Homepage() {
         >
           <figure className="home-paths-photo">
             <Image
-              src="/assets/trail-path.png"
+              src="/assets/trail-path-web.webp"
               alt=""
-              width={470}
-              height={1536}
+              width={455}
+              height={1530}
               sizes="(max-width: 720px) 240px, 300px"
               quality={86}
             />
