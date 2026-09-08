@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -119,6 +120,51 @@ const responsePaths = [
     text: "What is funded, what is not, and how to talk with the Foundation about a larger commitment.",
     href: "#give",
     cue: "Ways to give",
+  },
+];
+
+const pathPines = [
+  {
+    src: "/assets/pine-1.svg",
+    width: "52px",
+    x: "122px",
+    y: "7%",
+    transform: "rotate(3deg)",
+  },
+  {
+    src: "/assets/pine-3.svg",
+    width: "38px",
+    x: "36px",
+    y: "20%",
+    transform: "rotate(-8deg)",
+  },
+  {
+    src: "/assets/pine-2.svg",
+    width: "48px",
+    x: "126px",
+    y: "37%",
+    transform: "rotate(6deg)",
+  },
+  {
+    src: "/assets/pine-4.svg",
+    width: "34px",
+    x: "42px",
+    y: "53%",
+    transform: "rotate(-5deg)",
+  },
+  {
+    src: "/assets/pine-1.svg",
+    width: "46px",
+    x: "118px",
+    y: "70%",
+    transform: "rotate(4deg)",
+  },
+  {
+    src: "/assets/pine-3.svg",
+    width: "36px",
+    x: "38px",
+    y: "84%",
+    transform: "rotate(-7deg)",
   },
 ];
 
@@ -330,13 +376,23 @@ export default async function Homepage() {
             />
             <div className="home-paths-wrap">
               <span className="home-paths-wood" aria-hidden="true">
-                <Image
-                  src="/assets/home-response-path.webp"
-                  alt=""
-                  width={760}
-                  height={1602}
-                  sizes="(max-width: 720px) 104px, (max-width: 980px) 140px, 200px"
-                />
+                {pathPines.map((pine, index) => (
+                  <Image
+                    key={`${pine.src}-${index}`}
+                    className="home-path-pine"
+                    src={pine.src}
+                    alt=""
+                    width={150}
+                    height={340}
+                    sizes="80px"
+                    style={{
+                      left: pine.x,
+                      top: pine.y,
+                      "--pine-width": pine.width,
+                      transform: pine.transform,
+                    } as CSSProperties}
+                  />
+                ))}
               </span>
               <span className="home-paths-trail" aria-hidden="true" />
               <ul className="home-paths-list">
