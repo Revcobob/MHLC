@@ -50,10 +50,10 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Memory Health Life Center",
       images: [
         {
-          url: "/assets/home-campus.webp",
-          width: 1400,
-          height: 763,
-          alt: "Concept illustration of a residential campus among gardens and trees",
+          url: "/assets/home-campus-aerial.webp",
+          width: 1672,
+          height: 941,
+          alt: "Aerial concept rendering of a residential campus among gardens, woods, and a creek at sunset",
         },
       ],
     },
@@ -61,7 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: ["/assets/home-campus.webp"],
+      images: ["/assets/home-campus-aerial.webp"],
     },
     icons: { icon: "/assets/mhlc-brand-icon-512.png" },
   };
@@ -299,16 +299,16 @@ export default async function Homepage() {
             </div>
             <figure className="home-hero-figure">
               <Image
-                src="/assets/home-campus.webp"
-                alt="Concept illustration of homes, gardens, and walking paths in a wooded residential community"
+                src="/assets/home-campus-aerial.webp"
+                alt="Aerial concept rendering of the planned campus at sunset: clusters of single-storey homes among woods and gardens, a central commons building, a creek crossed by a footbridge, and an entry sign reading Memory Health Life Center, Quitman, Texas"
                 fill
                 priority
                 sizes="(max-width: 1080px) 100vw, 55vw"
                 quality={86}
               />
               <figcaption>
-                <a href="/assets/home-campus.webp">
-                  Campus concept illustration
+                <a href="/assets/home-campus-aerial.webp">
+                  Campus concept rendering
                 </a>{" "}
                 — not a completed facility.
               </figcaption>
@@ -322,13 +322,13 @@ export default async function Homepage() {
           className="home-section home-paths"
           aria-labelledby="paths-heading"
         >
-          <figure className="home-paths-photo" aria-hidden="true">
+          <figure className="home-paths-photo">
             <Image
-              src="/assets/trail-path.webp"
+              src="/assets/trail-path-web.webp"
               alt=""
-              width={760}
-              height={1080}
-              sizes="(max-width: 720px) 100vw, 300px"
+              width={455}
+              height={1530}
+              sizes="(max-width: 720px) 240px, 300px"
               quality={86}
             />
             <figcaption>

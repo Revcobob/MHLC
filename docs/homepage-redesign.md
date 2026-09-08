@@ -31,10 +31,11 @@ Original source assets remain unchanged.
 
 | Asset | Source and treatment |
 | --- | --- |
-| `public/assets/home-campus.webp` | Optimized from `hero-campus-rendering-web.jpg`. Labeled a concept illustration, not a completed facility or architect-approved rendering. Original authorship/approval needs owner verification. |
+| `public/assets/home-campus-aerial.webp` | Optimized from `hero-campus-rendering-web2.png` (1672x941, 2.9 MB PNG to 312 KB WebP). The hero rendering. Labeled a concept rendering, not a completed facility or architect-approved drawing. Original authorship/approval needs owner verification. Supersedes `home-campus.webp`, which is kept in place in case a CMS row still points at it. |
 | `public/assets/home-woodland.webp` | Optimized from the existing `foundation-hero-pond-web.jpg`. Landscape imagery, not evidence of construction or completion. |
 | `public/assets/home-daily-life.webp` | Original AI-generated editorial illustration, explicitly captioned as an envisioned day. Does not depict actual residents. |
-| `public/assets/pine-1.svg` through `public/assets/pine-4.svg` | Lightweight original watercolor pine illustrations used sparingly around the visitor-path trail. They replace the busier woodland background image and keep the path closer to the approved sketch direction. |
+| `public/assets/trail-path.png` | The supplied trail artwork: a photograph of an East Texas pine trail cut out against a transparent ground with a deckled, torn edge. Kept as the source. |
+|  `public/assets/trail-path-web.webp` | Derived from `trail-path.png` for the page: the transparent margin trimmed to the artwork's alpha bounding box (1024x1536 to 455x1530) and encoded as WebP with alpha, 2.2 MB to 314 KB. Landscape imagery, not evidence of construction or completion. |
 | `public/assets/mhlc-brand-icon-512.png` | Existing brand mark, retained. |
 | `public/assets/Brief Overview MHLC project.pdf` | Existing project document, linked without alteration. Confirm revision date and current applicability with the Foundation. |
 
@@ -268,3 +269,57 @@ copy is untouched: same six rows, same wording, same destinations.
 > placeholder cropped from `home-woodland.webp`. Replace it with the supplied
 > trail photograph at roughly 760x1080 or larger; the crop is anchored at
 > `object-position: 62% center` so the trail stays in frame.
+
+### Hero rendering swapped (September 8, 2026)
+
+The hero now shows the aerial campus rendering supplied as
+`hero-campus-rendering-web2.png` rather than the earlier ground-level concept
+illustration.
+
+- Optimized to `public/assets/home-campus-aerial.webp` (1672x941, 312 KB) so
+  the priority LCP image matches the weight of the one it replaces. The 2.9 MB
+  PNG source stays in `public/assets` untouched.
+- `object-position` moved from `58% 50%` to `48% 50%`. At the desktop panel's
+  ~1.1 aspect the crop is horizontal, and 48% keeps the commons building, the
+  creek and footbridge, and the entry sign in frame while trimming the parking
+  lot on the right.
+- Alt text describes what the rendering actually shows, including the entry
+  sign's wording, and the caption reads "Campus concept rendering — not a
+  completed facility." The claim is unchanged: still a concept, still not a
+  completed building.
+- The Open Graph and Twitter card images point at the new file with its own
+  dimensions.
+
+`home-campus.webp` is now unreferenced in the codebase but left in place, since
+a `site_settings` or `page_sections` row could still point at it.
+
+### The trail strip is a torn cut-out, not a cropped panel (September 8, 2026)
+
+The visitor-path artwork is a photograph with a **transparent ground and a
+deckled, torn edge**, so it is placed as a cut-out laid on the page rather
+than a photo filling a rectangle. Three things in the previous build would
+have destroyed that, and all three are gone:
+
+- **The figure's fill and scrim.** `background: var(--teal-deep)` and the
+  `::after` gradient foot both drew inside the figure's box, so they showed
+  through wherever the artwork is transparent. The figure now paints nothing.
+- **`object-fit: cover`.** Filling a ~280x1264 column from a portrait strip
+  cropped the sides away — precisely the torn edges. The image now keeps its
+  natural proportions (`height: auto`, capped by `max-height` so it scales
+  down rather than crops) and is inset from the viewport edge by one gutter,
+  so the deckle on both sides is fully visible.
+- **The caption over the image.** White type needs something to sit on. It
+  now sits on the page below the strip, in teal over a gold rule, and the
+  figure is no longer `aria-hidden` so the caption is read out.
+
+The strip is `position: sticky` and travels with the reader while the six
+choices scroll past it. On mobile it leads the section, capped at 240px wide
+and 44vh tall so it stays a strip rather than becoming a band.
+
+The supplied artwork arrived as `trail-path.png` (1024x1536, alpha). Its
+strip occupies only the middle ~45% of that canvas, so the page uses
+`trail-path-web.webp` instead: the same picture trimmed to its alpha bounding
+box with four pixels of margin, so the strip fills its column rather than
+floating in empty canvas, and encoded as WebP with alpha — 2.2 MB down to
+314 KB, which matters on the rural-mobile connections the redesign spec calls
+out. `trail-path.png` stays in the repo as the source.
