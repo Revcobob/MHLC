@@ -34,6 +34,7 @@ Original source assets remain unchanged.
 | `public/assets/home-campus.webp` | Optimized from `hero-campus-rendering-web.jpg`. Labeled a concept illustration, not a completed facility or architect-approved rendering. Original authorship/approval needs owner verification. |
 | `public/assets/home-woodland.webp` | Optimized from the existing `foundation-hero-pond-web.jpg`. Landscape imagery, not evidence of construction or completion. |
 | `public/assets/home-daily-life.webp` | Original AI-generated editorial illustration, explicitly captioned as an envisioned day. Does not depict actual residents. |
+| `public/assets/pine-1.svg` through `public/assets/pine-4.svg` | Lightweight original watercolor pine illustrations used sparingly around the visitor-path trail. They replace the busier woodland background image and keep the path closer to the approved sketch direction. |
 | `public/assets/mhlc-brand-icon-512.png` | Existing brand mark, retained. |
 | `public/assets/Brief Overview MHLC project.pdf` | Existing project document, linked without alteration. Confirm revision date and current applicability with the Foundation. |
 
@@ -41,9 +42,13 @@ Original source assets remain unchanged.
 
 Use case: illustration-story. Create one polished editorial illustration for the Memory Health Life Center website: an envisioned residential community for adults living with dementia in East Texas. Wide panoramic composition, 3:2 landscape. Warm welcoming dignified scene at human scale: a modest timber and stone home with broad shaded porch at left, gently curving accessible garden path through native plantings and tall pine and oak trees in center, raised garden beds and a small shared outdoor table at right. A few adult older neighbors with varied skin tones are tending a raised garden, walking together and sharing tea; natural respectful adult proportions, not cartoon caricatures. Hand-painted gouache and pencil architectural editorial illustration on very light warm-white paper, restrained forest teal, sage greens, muted clay red, pale sky blue, warm natural timber. Delicate fine line detail, sophisticated contemporary magazine illustration, calm daylight and generous breathing room. Fill the whole composition, no card frame, no text, no lettering, no logos, no labels, no separate panels. Clearly an illustration, never photorealistic, not a claim about actual residents or an actual completed campus. Prioritize buildings, garden and ordinary connection rather than exaggerated facial expressions. Render excellent quality at 1536 by 1024 or higher.
 
+### Visitor-Path Tree Treatment
+
+The visitor-path section uses a CSS-drawn path with animated waypoints and small pine SVG accents placed around the rail. The accents should stay quiet: no full background image, no dense woodland texture, and no documentary-looking photography.
+
 ## Validation and Deployment Notes
 
-- `npm run build` passed compilation, lint/type validation, and generation of all 33 static pages. Homepage first-load JavaScript: 98.4 kB including shared framework code.
+- `npm run build` passed compilation, lint/type validation, and generation of all 33 static pages. Homepage first-load JavaScript: 98.6 kB including shared framework code.
 - Browser review covers widths 1440, 1024, 768, 390, 360, and 320. Checks include overflow, image loading, anchors, mobile navigation, FAQ disclosures, reduced motion, skip navigation, no-JavaScript content, and legacy routes.
 - Final production browser checks passed at all six widths, with no horizontal overflow, broken homepage images/anchors, or runtime errors. Legacy redirects and secondary routes returned expected responses; the project-brief link returned a valid PDF.
 - Automated axe scans targeting WCAG 2.2 AA returned zero violations at 1440 and 390 pixels. These checks are not complete accessibility certification or real-device assistive-technology testing.
