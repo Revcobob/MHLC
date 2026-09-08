@@ -267,7 +267,7 @@ html:has(.mhlc-home) {
   backdrop-filter: blur(12px);
 }
 .home-header-inner {
-  min-height: 104px;
+  min-height: 136px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -276,7 +276,7 @@ html:has(.mhlc-home) {
 .home-brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -285,8 +285,8 @@ html:has(.mhlc-home) {
   line-height: 0;
 }
 .home-brand img {
-  width: 52px;
-  height: 76px;
+  width: 64px;
+  height: 96px;
   flex-shrink: 0;
   object-fit: contain;
 }
@@ -296,15 +296,15 @@ html:has(.mhlc-home) {
 }
 .home-brand-name {
   display: block;
-  padding-block: 0.28rem;
+  padding-block: 0.25rem;
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--ink);
 }
 .home-brand-foundation {
   display: block;
-  padding-block: 0.3rem;
+  padding-block: 0.28rem;
   font-size: 0.6875rem;
   line-height: 1.35;
   letter-spacing: 0.14em;
@@ -324,9 +324,9 @@ html:has(.mhlc-home) {
 .home-nav {
   display: flex;
   align-items: center;
-  gap: clamp(0.9rem, 1.6vw, 1.75rem);
+  gap: clamp(1.25rem, 1.55vw, 1.75rem);
   margin-left: auto;
-  font-size: var(--text-small);
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--ink-soft);
   white-space: nowrap;
@@ -361,7 +361,7 @@ html:has(.mhlc-home) {
 }
 .home-header-donate {
   min-height: 44px;
-  padding: 0.65rem 1.4rem;
+  padding: 0.625rem 1.25rem;
 }
 .home-mobile-nav {
   display: none;

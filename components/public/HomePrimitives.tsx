@@ -64,7 +64,7 @@ export function HomeBrand({ footer = false }: { footer?: boolean }) {
           alt=""
           width={52}
           height={76}
-          sizes={footer ? "44px" : "52px"}
+          sizes={footer ? "44px" : "(max-width: 640px) 34px, (max-width: 1080px) 42px, 64px"}
           priority={!footer}
         />
       </a>
