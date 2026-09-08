@@ -592,10 +592,10 @@ html:has(.mhlc-home) {
 .home-paths-wood {
   position: absolute;
   left: 0;
-  top: -26px;
-  bottom: -26px;
+  top: -22px;
+  bottom: -22px;
   width: 200px;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(
     180deg,
@@ -612,13 +612,15 @@ html:has(.mhlc-home) {
     transparent 100%
   );
 }
-.home-paths-wood img {
+.home-path-pine {
   position: absolute;
   display: block;
-  left: var(--pine-x);
-  width: 72px;
+  width: var(--pine-width);
   height: auto;
-  opacity: 0.62;
+  max-width: none;
+  opacity: 0.36;
+  filter: saturate(0.82) contrast(0.92);
+  mix-blend-mode: multiply;
 }
 .home-paths-trail {
   position: absolute;
@@ -1757,11 +1759,12 @@ html:has(.mhlc-home) {
   .home-paths-trail {
     width: 140px;
   }
+  .home-path-pine {
+    width: min(var(--pine-width), 38px);
+    opacity: 0.32;
+  }
   .home-paths-trail {
     background-size: 140px 196px;
-  }
-  .home-paths-wood img {
-    width: 56px;
   }
   .home-paths-list li {
     padding-left: 168px;
@@ -1797,14 +1800,12 @@ html:has(.mhlc-home) {
   .home-paths-trail {
     width: 104px;
   }
+  .home-path-pine {
+    width: min(var(--pine-width), 28px);
+    opacity: 0.24;
+  }
   .home-paths-trail {
     background-size: 104px 146px;
-  }
-  /* At this gauge the ribbon would cover a tree placed to its left, so the
-     whole wood moves to the clear side of the path. */
-  .home-paths-wood img {
-    left: 52%;
-    width: 46px;
   }
   .home-paths-list li {
     padding-left: 124px;
