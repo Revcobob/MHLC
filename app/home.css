@@ -653,7 +653,7 @@ html:has(.mhlc-home) {
   max-width: 980px;
 }
 .home-paths-content .home-heading .home-lead {
-  max-width: 64ch;
+  max-width: 76ch;
 }
 
 .home-paths-list {
