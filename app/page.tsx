@@ -804,7 +804,7 @@ export default async function Homepage() {
                   impact reaches beyond the future campus.
                 </p>
                 <div className="home-actions">
-                  <HomeLink href={homeLinks.contact} variant="white">
+                  <HomeLink href={homeLinks.contact} variant="outline-light">
                     Start a conversation
                   </HomeLink>
                   <HomeLink href={homeLinks.recognition}>

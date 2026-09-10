@@ -10,7 +10,7 @@ export function HomeLink({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "text" | "teal" | "clay" | "white" | "outline";
+  variant?: "text" | "teal" | "clay" | "white" | "outline" | "outline-light";
 }) {
   return (
     <a
@@ -64,7 +64,11 @@ export function HomeBrand({ footer = false }: { footer?: boolean }) {
           alt=""
           width={52}
           height={76}
-          sizes={footer ? "44px" : "(max-width: 640px) 34px, (max-width: 1080px) 42px, 64px"}
+          sizes={
+            footer
+              ? "44px"
+              : "(max-width: 640px) 34px, (max-width: 1080px) 42px, 64px"
+          }
           priority={!footer}
         />
       </a>
