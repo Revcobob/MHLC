@@ -220,6 +220,17 @@ html:has(.mhlc-home) {
   background: rgba(15, 76, 74, 0.06);
   border-color: var(--teal);
 }
+.home-button-outline-light {
+  /* 0.5 alpha clears the 3:1 non-text contrast floor against the giving
+     panel; 0.4 measures 2.7:1. */
+  border-color: rgba(247, 242, 234, 0.5);
+  color: var(--sand);
+  background: transparent;
+}
+.home-button-outline-light:hover {
+  background: rgba(247, 242, 234, 0.12);
+  border-color: var(--sand);
+}
 .home-text-link {
   display: inline-flex;
   align-items: center;
@@ -1799,9 +1810,6 @@ html:has(.mhlc-home) {
   .home-paths-rail figcaption::after {
     width: 36px;
     margin-top: 0.75rem;
-  }
-  .home-paths-content .home-heading h2 {
-    font-size: clamp(2rem, 1.35rem + 5vw, 2.55rem);
   }
   .home-paths-content .home-heading .home-lead {
     font-size: 1rem;
